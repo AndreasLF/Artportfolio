@@ -1,0 +1,13 @@
+/*
+Theme Name: Art portfolio
+Author: Andreas Fiehn
+Description: A simple art gallery portfolio website
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: artportfolio
+Tags: art portfolio,
+*/
+html {
+    margin-top: 0px !important;
+}
