@@ -17,42 +17,42 @@ function ap_create_gallery($imageSources = null){
   //if $imageSources exists
    if($imageSources){ ?>
      <!-- Creation of html-code -->
-         <div class="row">
-           <div class="column">
+         <div class="gallery-row">
+           <div class="gallery-column">
              <?php
               //loops through every fourth photo starting with number 0
                for($i=0; $i<count($imageSources); $i+=4){
                  ?>
-                 <img data= class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <img src="<?php echo $imageSources[$i]; ?>" />1
                  <?php
                }?>
            </div>
-           <div class="column">
+           <div class="gallery-column">
              <?php
              //loops through every fourth photo starting with number 1
                for($i=1; $i<count($imageSources); $i+=4){
                  ?>
-                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <img  src="<?php echo $imageSources[$i]; ?>" />2
                  <?php
                }
                ?>
            </div>
-           <div class="column">
+           <div class="gallery-column">
              <?php
              //loops through every fourth photo starting with number 2
                for($i=2; $i<count($imageSources); $i+=4){
                  ?>
-                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <img  src="<?php echo $imageSources[$i]; ?>" />3
                  <?php
                }
                ?>
            </div>
-           <div class="column">
+           <div class="gallery-column">
              <?php
              //loops through every fourth photo starting with number 3
                for($i=3; $i<count($imageSources); $i+=4){
                  ?>
-                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <img src="<?php echo $imageSources[$i]; ?>" />4
                  <?php
                }
                ?>
@@ -90,9 +90,6 @@ function ap_create_gallery($imageSources = null){
 
 </div>
 <!-- /container -->
-
-
-
 
 
 <?php get_footer(); ?>
