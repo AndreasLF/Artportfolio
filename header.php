@@ -16,5 +16,8 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-  
+
+
+<body <?php body_class(); ?> >
+
+<?php  get_template_part('template-parts/nav-bar'); ?>
