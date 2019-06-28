@@ -3,46 +3,90 @@
 
 <?php get_header(); ?>
 
+
+
+<?php
+/*
+* This function creates a photo gallery from an array of photo sources
+*
+* @param array $imageSources array of imgage source links
+* @return html photo gallery
+*/
+
+function ap_create_gallery($imageSources = null){
+  //if $imageSources exists
+   if($imageSources){ ?>
+     <!-- Creation of html-code -->
+         <div class="row">
+           <div class="column">
+             <?php
+              //loops through every fourth photo starting with number 0
+               for($i=0; $i<count($imageSources); $i+=4){
+                 ?>
+                 <img data= class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <?php
+               }?>
+           </div>
+           <div class="column">
+             <?php
+             //loops through every fourth photo starting with number 1
+               for($i=1; $i<count($imageSources); $i+=4){
+                 ?>
+                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <?php
+               }
+               ?>
+           </div>
+           <div class="column">
+             <?php
+             //loops through every fourth photo starting with number 2
+               for($i=2; $i<count($imageSources); $i+=4){
+                 ?>
+                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <?php
+               }
+               ?>
+           </div>
+           <div class="column">
+             <?php
+             //loops through every fourth photo starting with number 3
+               for($i=3; $i<count($imageSources); $i+=4){
+                 ?>
+                 <img class="img-fluid" src="<?php echo $imageSources[$i]; ?>" />
+                 <?php
+               }
+               ?>
+           </div>
+         </div>
+       <?php
+   }
+   else{
+     return;
+   }
+
+
+} ?>
+
 <!--Container -->
 <div class="container">
   <h2><?php wp_title(''); ?></h2>
     <?php
     if(have_posts()){
+
+        $imgSrcs = array();
                 while(have_posts()){
                     the_post();
+                    $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
+                    array_push($imgSrcs,$imgSrc);
+?>
+
+
+<?php
                 }
+
+                ap_create_gallery($imgSrcs);
+
             } ?>
-
-
-
-
-              <div class="row">
-              <div class="column">
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dc414d50ad14f6d1867dda6d49214b6ac3e45657704f732c7dd292/butterfly-4292721_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464855a914f6d1867dda6d49214b6ac3e45657704f732c7dd595/fantasy-4285275_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-              </div>
-              <div class="column">
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464855a914f6d1867dda6d49214b6ac3e45657704f732c7dd595/fantasy-4285275_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dc414d50ad14f6d1867dda6d49214b6ac3e45657704f732c7dd292/butterfly-4292721_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-              </div>
-              <div class="column">
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464855a914f6d1867dda6d49214b6ac3e45657704f732c7dd595/fantasy-4285275_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dc414d50ad14f6d1867dda6d49214b6ac3e45657704f732c7dd292/butterfly-4292721_1920.jpg" />
-              </div>
-              <div class="column">
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dc414d50ad14f6d1867dda6d49214b6ac3e45657704f732c7dd292/butterfly-4292721_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464855a914f6d1867dda6d49214b6ac3e45657704f732c7dd595/fantasy-4285275_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-                <img class="img-fluid" src="https://pixabay.com/get/52e2dd464d5aae14f6d1867dda6d49214b6ac3e45657704f732c79dd9f/thundercloud-4285782_1920.jpg" />
-              </div>
-
-            </div>
 
 </div>
 <!-- /container -->
