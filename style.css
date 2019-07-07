@@ -9,37 +9,55 @@ Text Domain: artportfolio
 Tags: art portfolio,
 */
 
-.gallery-row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+
+/* -------------------------------------------------------------------- */
+/*--------------------*\
+  AP - Image gallery
+\*--------------------*/
+
+/* Grid */
+.ap-grid {
+  transition: all .5s ease-in-out;
+  column-gap: 15px;
+  column-fill: initial;
 }
 
-/* Create four equal columns that sits next to each other */
-.gallery-column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
+/* Gallery items */
+.ap-grid .ap-gallery-block {
+  margin-bottom: 15px;
+  display: inline-block; /* Fix the misalignment of items */
+  vertical-align: top; /* Keep the item on the very top */
 }
 
-.gallery-column img {
-  margin-top: 8px;
+
+.ap-gallery-block img, video {
+  max-width: 100%;
   vertical-align: middle;
-  width: 100%;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .gallery-column {
-    flex: 50%;
-    max-width: 50%;
+/* Image effects */
+.ap-grid .ap-gallery-block img {
+  transition: all .5s ease-in-out;
+  backface-visibility: hidden; /* Remove Image flickering on hover */
+}
+
+.ap-grid .ap-gallery-block:hover img {
+  opacity: .75;
+}
+
+/* Tablet scaling */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .ap-grid {
+    column-count: 2;
   }
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .gallery-column {
-    flex: 100%;
-    max-width: 100%;
+
+/* Big screen scaling */
+@media only screen and (min-width: 1024px) {
+  .ap-grid {
+    column-count: 3;
   }
 }
+
+/* -------------------------------------------------------------------- */
