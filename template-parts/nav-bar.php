@@ -2,28 +2,58 @@
 
 <?php if (has_nav_menu('primary')) {?>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
+     <i class="fas fa-bars"></i>
    </button>
 
+<div class="collapse navbar-collapse navbar-nav-scroll justify-content-between" id="primaryNavbar">
       <?php wp_nav_menu([
          'menu'            => 'primary',
          'container'       => 'div',
-         'container_id'    => 'primaryNavbar',
-         'container_class' => 'collapse navbar-collapse',
+         'container_id'    => '',
+         'container_class' => '',
          'menu_id'         => false,
-         'menu_class'      => 'navbar-nav mr-auto',
+         'menu_class'      => 'nav navbar-nav mr-auto',
          'depth'           => 2,
          'fallback_cb'     => 'bs4navwalker::fallback',
          'walker'          => new bs4navwalker()
       ]); ?>
 
 
+<div class="row justify-content-start mx-1">
+  <div class="mx-2">
+    <a class="" target="_blank" href="https://www.instagram.com/thomasravnt/">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  <div class="mx-2">
+    <a class="" target="_blank" href="">
+      <i class="fas fa-envelope"></i>
+    </a>  </div>
+</div>
+<!--
+<ul class="navbar-nav right">
+  <li class="nav-item">
+    <a class="nav-link" target="_blank" href="https://www.instagram.com/thomasravnt/">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" target="_blank" href="">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </li>
+</ul> -->
+
+
+</div>
 
 
   </nav>
   <br />
+
+
 
 <?php } ?>
