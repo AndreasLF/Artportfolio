@@ -37,6 +37,7 @@ function ap_create_gallery($imageSources = null){
 <!--Container -->
 <div class="container">
   <h2><?php wp_title(''); ?></h2>
+  <br />
     <?php
     if(have_posts()){
         $imgSrcs = array();

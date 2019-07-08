@@ -10,6 +10,11 @@ Tags: art portfolio,
 */
 
 
+.navbar-toggler:focus,.navbar-toggler:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
 /* -------------------------------------------------------------------- */
 /*--------------------*\
   AP - Image gallery
