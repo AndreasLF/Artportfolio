@@ -94,6 +94,49 @@
       }
     }
 
+
+
+    // Change image with arrow buttons
+    $(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+
+            var totalSlides = $('.ap-grid').data('ap-total-slides');
+
+            if(currentImage == 0){
+              currentImage = totalSlides - 1;
+            }else{
+              currentImage = currentImage - 1;
+            }
+            //Change image source
+            $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+
+            //set caption
+            setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+        break;
+
+        case 39: // right
+            var totalSlides = $('.ap-grid').data('ap-total-slides');
+
+            if(currentImage == totalSlides - 1){
+              currentImage = 0;
+            }else{
+              currentImage = currentImage + 1;
+            }
+
+            //Change image source
+            $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+
+            //set caption
+            setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
+
   });
 
 })( jQuery );
