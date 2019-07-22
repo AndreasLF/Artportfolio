@@ -9,18 +9,18 @@
 /*
 * This function creates a photo gallery from an array of photo sources
 *
-* @param array $imageSources array of image source links
+* @param array $images nested array of image information
 * @return html photo gallery
 */
-function ap_create_gallery($imageSources = null){
-  if($imageSources){
+function ap_create_gallery($images = null){
+  if($images){
     ?>
-    <div class="ap-grid">
+    <div class="ap-grid" data-ap-total-slides="<?php echo count($images); ?>">
     <?php
-      foreach($imageSources as $image){
+      foreach($images as $n=>$image){
         ?>
-        <div class="ap-gallery-block" data>
-          <img src="<?php echo $image; ?>">
+        <div class="ap-gallery-block" data-ap-slide-no="<?php echo $n; ?>" <?php if($image['text']){ echo 'data-ap-img-text="'. $image['text'].'"';}; ?> <?php if($image['size']){ echo 'data-ap-img-size="'. $image['size'].'"';}; ?>">
+          <img src="<?php echo $image['src']; ?>">
         </div>
         <?php
       }
@@ -40,15 +40,19 @@ function ap_create_gallery($imageSources = null){
   <br />
     <?php
     if(have_posts()){
-        $imgSrcs = array();
+        $imgs = array();
 
         while(have_posts()){
             the_post();
             $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
-            array_push($imgSrcs,$imgSrc);
-        }
+            $imgText = get_post_meta(get_the_ID(), 'text')[0];
+            $imgSize = get_post_meta(get_the_ID(), 'size')[0];
 
-        ap_create_gallery($imgSrcs);
+
+
+            array_push($imgs,array('src' => $imgSrc, 'text' => $imgText, 'size' => $imgSize));
+        }
+        ap_create_gallery($imgs);
 
       } ?>
     </div><!-- /container -->

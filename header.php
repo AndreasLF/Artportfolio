@@ -21,9 +21,7 @@
 
 <body <?php body_class(); ?> >
 
-  <!-- Large modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ap-slideshow-modal">Large modal</button>
-
+  <!-- Fullscreen image modal -->
   <div class="modal fade ap-slideshow-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="ap-modal-full modal-dialog modal-lg">
 
