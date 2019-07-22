@@ -20,4 +20,31 @@
 
 
 <body <?php body_class(); ?> >
+
+  <!-- Large modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ap-slideshow-modal">Large modal</button>
+
+  <div class="modal fade ap-slideshow-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="ap-modal-full modal-dialog modal-lg">
+
+      <div class="modal-content ap-slideshow-content justify-content-center">
+        <div class="ap-slideshow-btn ap-slideshow-btn-close">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="ap-slideshow-btn ap-slideshow-btn-next">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="ap-slideshow-btn ap-slideshow-btn-prev">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="ap-slideshow-caption">
+          askdklfmaklmsfdklm
+        </div>
+
+        <img class="ap-slideshow-img" src="" />
+
+      </div>
+    </div>
+  </div>
+
 <?php  get_template_part('template-parts/nav-bar'); ?>

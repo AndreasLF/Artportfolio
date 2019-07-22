@@ -19,7 +19,7 @@ function ap_create_gallery($imageSources = null){
     <?php
       foreach($imageSources as $image){
         ?>
-        <div class="ap-gallery-block">
+        <div class="ap-gallery-block" data>
           <img src="<?php echo $image; ?>">
         </div>
         <?php
@@ -52,5 +52,7 @@ function ap_create_gallery($imageSources = null){
 
       } ?>
     </div><!-- /container -->
+
+
 
 <?php get_footer(); ?>
