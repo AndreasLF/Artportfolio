@@ -1,3 +1,6 @@
+
+
+
 <?php get_header(); ?>
 
 <!--Container -->
@@ -14,8 +17,6 @@
             $imgText = get_post_meta(get_the_ID(), 'text')[0];
             $imgSize = get_post_meta(get_the_ID(), 'size')[0];
 
-
-
             array_push($imgs,array('src' => $imgSrc, 'text' => $imgText, 'size' => $imgSize));
         }
         ap_create_gallery($imgs);
@@ -23,14 +24,15 @@
       } ?>
     </div><!-- /container -->
 
-
-
 <?php get_footer(); ?>
 
 
 
-<?php
-/*
+
+
+
+
+<?php /*
 * This function creates a photo gallery from an array of photo sources
 *
 * @param array $images nested array of image information

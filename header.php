@@ -36,7 +36,6 @@
           <i class="fas fa-chevron-left"></i>
         </div>
         <div class="ap-slideshow-caption">
-          askdklfmaklmsfdklm
         </div>
 
         <img class="ap-slideshow-img" src="" />
