@@ -10,7 +10,7 @@
 
 <div class="collapse navbar-collapse navbar-nav-scroll justify-content-between ml-3 mt-2 mb-2" id="primaryNavbar">
 <div class="row mr-5">
-  <a class="navbar-brand" href="#">Thomas Ravn Thomsen</a>
+  <a class="navbar-brand" href="<?php echo get_home_url();?>">Thomas Ravn Thomsen</a>
 </div>
 
       <?php wp_nav_menu([
