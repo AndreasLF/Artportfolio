@@ -4,6 +4,13 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+
+
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Oswald:400,700|Permanent+Marker&display=swap" rel="stylesheet">
+
     <meta charset="<?php bloginfo('charset'); ?>">
     <title>
         <?php wp_title(''); ?>

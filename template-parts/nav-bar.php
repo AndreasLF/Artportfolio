@@ -4,13 +4,15 @@
 
 <nav class="navbar navbar-expand-lg border-bottom">
 
+  <a class="navbar-brand ap-nav-link d-lg-none d-xl-none" href="<?php echo get_home_url();?>"><strong>Hvid Støj</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
      <i class="fas fa-bars"></i>
    </button>
 
+
 <div class="collapse navbar-collapse navbar-nav-scroll justify-content-between ml-3 mt-2 mb-2" id="primaryNavbar">
-<div class="row mr-5">
-  <a class="navbar-brand" href="<?php echo get_home_url();?>">Thomas Ravn Thomsen</a>
+<div class="row mr-5 d-none d-lg-block">
+  <a class="navbar-brand ap-nav-link" href="<?php echo get_home_url();?>"><strong>Hvid Støj</strong></a>
 </div>
 
       <?php wp_nav_menu([
@@ -29,12 +31,12 @@
 
 <div class="row justify-content-start mr-1">
   <div class="ml-3">
-    <a class="" target="_blank" href="https://www.instagram.com/thomasravnt/">
+    <a class="ap-nav-link" target="_blank" href="https://www.instagram.com/thomasravnt/">
       <i class="fab fa-instagram"></i>
     </a>
   </div>
   <div class="ml-4">
-    <a class="" target="_blank" href="">
+    <a class="ap-nav-link" target="_blank" href="">
       <i class="fas fa-envelope"></i>
     </a>  </div>
 </div>

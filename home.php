@@ -8,9 +8,12 @@
   <h2><?php wp_title(''); ?></h2>
   <br />
     <?php
+    $recent_posts = wp_get_recent_posts(array(
+       'numberposts' => 4, // Number of recent posts thumbnails to display
+       'post_status' => 'publish' // Show only the published posts
+   ));
     if(have_posts()){
         $imgs = array();
-
         while(have_posts()){
             the_post();
             $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];

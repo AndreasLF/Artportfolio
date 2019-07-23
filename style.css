@@ -10,11 +10,44 @@ Tags: art portfolio,
 */
 
 
+h2{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.ap-frontpage-img{
+  margin: auto;
+  max-width: 100%;
+  max-height: 72vh;
+}
+
+/* -------------------------------------------------------------------- */
+/*--------------------*\
+     AP - Nav bar
+\*--------------------*/
+
 .navbar-toggler:focus,.navbar-toggler:active {
    outline: none !important;
    box-shadow: none;
 }
 
+.ap-nav-link:hover{
+  color: #616161;
+}
+
+
+.ap-nav-link{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.nav-link:hover{
+  color: #616161;
+}
+
+.nav-link{
+    font-family: 'Permanent Marker', cursive;
+}
+
+/* -------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------- */
 /*--------------------*\
