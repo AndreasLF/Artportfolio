@@ -37,7 +37,7 @@
   </div>
   <div class="ml-4">
     <a class="ap-nav-link" target="_blank" href="">
-      <i class="fas fa-envelope"></i>
+      <i class="far fa-envelope"></i>
     </a>  </div>
 </div>
 <!--

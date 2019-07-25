@@ -21,9 +21,17 @@ h2{
 }
 
 .ap-bio-img{
-  width: 40%;
+  width: 100%;
 }
 
+.ap-bio-social-link{
+  font-family: 'Permanent Marker', cursive;
+}
+.ap-bio-social-link:hover{
+  color: #616161;
+  text-decoration: none;
+
+}
 
 /* -------------------------------------------------------------------- */
 /*--------------------*\
