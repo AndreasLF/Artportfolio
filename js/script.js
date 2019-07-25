@@ -36,7 +36,9 @@
         $('.ap-slideshow-modal').modal('hide');
 
         //Hide story if shown
-        if(storyToggled == true){ toggleStory();};
+        if(storyToggled == true){
+          toggleStory();
+        };
 
     });
 
@@ -58,7 +60,9 @@
         setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
         //Hide story if shown
-        if(storyToggled == true){ toggleStory();};
+        if(storyToggled == true){
+          toggleStory();
+        };
 
         // set story
         setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
@@ -80,8 +84,11 @@
         //set caption
         setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
+
         //Hide story if shown
-        if(storyToggled == true){ toggleStory();};
+        if(storyToggled == true){
+          toggleStory();
+        };
 
         // set story
         setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
@@ -203,6 +210,12 @@
             }else{
               currentImage = currentImage - 1;
             }
+
+            //Hide story if shown
+            if(storyToggled == true){
+              toggleStory();
+            };
+
             //Change image source
             $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
@@ -220,11 +233,19 @@
               currentImage = currentImage + 1;
             }
 
+            //Hide story if shown
+            if(storyToggled == true){
+              toggleStory();
+            };
+
             //Change image source
             $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
             //set caption
             setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+
+
         break;
         default: return; // exit this handler for other keys
     }
