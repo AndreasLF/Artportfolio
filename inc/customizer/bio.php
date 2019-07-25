@@ -19,7 +19,7 @@ function ap_bio_customizer_section($wp_customize){
     \*--------------------*/
     $wp_customize->add_section('ap_bio_section',array(
         'title' => 'Bio',
-        'priority' => 30,
+        'priority' => 40,
         'panel' => 'artportfolio'
     ));
 

@@ -18,6 +18,8 @@ require_once(get_template_directory().'/lib/bs4navwalker.php');
 include(get_template_directory().'/inc/theme-customizer.php');
 include(get_template_directory().'/inc/customizer/social.php');
 include(get_template_directory().'/inc/customizer/bio.php');
+include(get_template_directory().'/inc/customizer/frontpage.php');
+
 
 
 
