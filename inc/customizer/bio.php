@@ -4,6 +4,9 @@ function ap_bio_customizer_section($wp_customize){
     /*--------------------*\
             Settings
     \*--------------------*/
+    $wp_customize->add_setting('ap_bio_name_handle',array(
+        'default' => ''
+    ));
 
     $wp_customize->add_setting('ap_bio_social_handle',array(
         'default' => 'none'
@@ -27,6 +30,19 @@ function ap_bio_customizer_section($wp_customize){
     /*--------------------*\
             Controls
     \*--------------------*/
+
+
+    $wp_customize->add_control(
+         new WP_Customize_Control(
+            $wp_customize,
+            'ap_bio_name_input',
+            array(
+                'label'          => __( 'Navn', 'artportfolio' ),
+                'section'        => 'ap_bio_section',
+                'settings'       => 'ap_bio_name_handle',
+            )
+        )
+    );
 
     $wp_customize->add_control(
          new WP_Customize_Control(

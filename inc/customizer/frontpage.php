@@ -58,6 +58,7 @@ function ap_front_customizer_section($wp_customize){
 
     );
 
+
 }
 
 ?>

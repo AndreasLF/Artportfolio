@@ -9,12 +9,14 @@
             the_post();
             ?>
 
-            <h2>
-                <?php
-                // post title
-                the_title();
-                ?>
-            </h2>
+            <?php if(get_theme_mod('ap_bio_name_handle')){ ?>
+              <h2>
+                  <?php
+                  // post title
+                    echo get_theme_mod('ap_bio_name_handle');
+                  ?>
+              </h2>
+            <?php } ?>
 
             <div class="row">
               <div class="col-xs-12 col-sm-4">

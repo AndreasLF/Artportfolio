@@ -11,9 +11,7 @@ get_template_part('template-parts/img-modal');
 
 <!--Container -->
 <div class="container">
-  <!-- Title -->
-  <h2><?php wp_title(''); ?></h2>
-  <!-- /Title -->
+
   <br />
 
 
