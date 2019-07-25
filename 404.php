@@ -10,14 +10,11 @@
     </h3>
   <!-- /title -->
 
-
-
-        <?php _e('The page you were looking for does not exist.','materialtheme')?>
-
+  <!-- error message -->
+    <?php _e('The page you were looking for does not exist.','materialtheme')?>
+  <!-- /error message -->
 
 
 </div><!-- /container -->
-
-
 
 <?php get_footer(); ?>

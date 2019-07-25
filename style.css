@@ -20,6 +20,11 @@ h2{
   max-height: 72vh;
 }
 
+.ap-bio-img{
+  width: 40%;
+}
+
+
 /* -------------------------------------------------------------------- */
 /*--------------------*\
      AP - Nav bar
@@ -176,6 +181,8 @@ h2{
     width: auto;
     color:white;
 
+    max-width: 80%;
+
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -184,6 +191,71 @@ h2{
 
 .ap-slideshow-caption:hover{
   background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Story/info */
+.ap-slideshow-btn-story{
+  padding-left: 18.2px;
+  padding-right: 18.2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  bottom: 16px;
+  right: 16px;
+  max-width: 100%;
+  max-height: 80%;
+  overflow:auto;
+  margin-left:20px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.ap-slideshow-story{
+  padding-left: 18.2px;
+  padding-right: 18.2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  bottom: 16px;
+  right: 16px;
+  max-width: 100%;
+  max-height: 80%;
+  margin-left:20px;
+
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+  overflow:auto;
+  cursor: pointer;
+
+}
+
+.ap-slideshow-story:hover{
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.ap-slideshow-story-content{
+  margin: 10px;
+}
+
+/* Big screen scaling */
+@media only screen and (min-width: 1024px) {
+  .ap-slideshow-story {
+    max-width: 60%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.ap-story-img{
+  max-width: 100%;
+  max-height: 30%;
+}
+
+.ap-story-divider{
+ border-color: rgba(100,100,100,0.8);
 }
 
 

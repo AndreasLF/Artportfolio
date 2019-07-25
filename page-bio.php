@@ -17,6 +17,7 @@
             </h2>
 
             <br />
+            <img class="ap-bio-img" src="<?php echo get_the_post_thumbnail_url(); ?>" />
 
             <?php
             // post content
