@@ -30,16 +30,54 @@
       <hr />
 
 <div class="row justify-content-start mr-1">
-  <div class="ml-3">
-    <a class="ap-nav-link" target="_blank" href="https://www.instagram.com/thomasravnt/">
-      <i class="fab fa-instagram"></i>
-    </a>
-  </div>
-  <div class="ml-4">
-    <a class="ap-nav-link" target="_blank" href="">
-      <i class="far fa-envelope"></i>
-    </a>  </div>
+  <?php if(get_theme_mod('ap_instagram_handle')){ ?>
+    <div class="ml-3">
+      <a class="ap-nav-link" target="_blank" href='https://www.instagram.com/<?php echo get_theme_mod('ap_instagram_handle');?>'>
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  <?php } ?>
+  <?php if(get_theme_mod('ap_email_handle')){ ?>
+    <div class="ml-4">
+      <a class="ap-nav-link" target="_blank" href="mailto:<?php echo get_theme_mod('ap_email_handle');?>">
+        <i class="far fa-envelope"></i>
+      </a>
+    </div>
+  <?php } ?>
+  <?php if(get_theme_mod('ap_email_handle')){ ?>
+    <div class="ml-4">
+      <a class="ap-nav-link" target="_blank" href="tel:<?php echo get_theme_mod('ap_phone_handle');?>">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  <?php } ?>
+  <?php if(get_theme_mod('ap_facebook_handle')){ ?>
+    <div class="ml-4">
+      <a class="ap-nav-link" target="_blank" href="facebook.com/<?php echo get_theme_mod('ap_facebook_handle');?>">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  <?php } ?>
+  <?php if(get_theme_mod('ap_twitter_handle')){ ?>
+    <div class="ml-4">
+      <a class="ap-nav-link" target="_blank" href="twitter.com/<?php echo get_theme_mod('ap_twitter_handle');?>">
+          <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  <?php } ?>
+  <?php if(get_theme_mod('ap_linkedin_handle')){ ?>
+    <div class="ml-4">
+      <a class="ap-nav-link" target="_blank" href="linkedin/in/<?php echo get_theme_mod('ap_linkedin_handle');?>">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  <?php } ?>
+
+
 </div>
+
+
+
 <!--
 <ul class="navbar-nav right">
   <li class="nav-item">

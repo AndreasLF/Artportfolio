@@ -14,6 +14,13 @@ include(get_template_directory().'/inc/enqueue.php');
 include(get_template_directory().'/inc/setup.php');
 require_once(get_template_directory().'/lib/bs4navwalker.php');
 
+//theme customizer
+include(get_template_directory().'/inc/theme-customizer.php');
+include(get_template_directory().'/inc/customizer/social.php');
+include(get_template_directory().'/inc/customizer/bio.php');
+
+
+
 /*--------------------*\
         Hooks
 \*--------------------*/
@@ -21,6 +28,9 @@ add_action('wp_enqueue_scripts','ap_enqueue');
 
 //Register nav menu
 add_action('after_setup_theme','ap_setup_theme');
+
+add_action('customize_register','ap_customize_register');
+
 
 /*--------------------*\
         Shortcode
