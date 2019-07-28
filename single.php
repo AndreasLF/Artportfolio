@@ -38,7 +38,7 @@
               if($imgDate){
               ?>
                 <br class="d-block d-sm-none" />
-                <i class="far fa-calendar"></i>
+                  <i class="far fa-calendar"></i>
                 <?php echo date('Y',strtotime($imgDate)); ?>
               <?php } ?>
             </div>

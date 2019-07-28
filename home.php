@@ -18,7 +18,8 @@ get_template_part('template-parts/img-modal');
             the_post();
 
             // Get image src and information
-            $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
+            $imgSrc = get_the_post_thumbnail_url(get_the_ID(),'large');
+            // $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
             $imgText = get_post_meta(get_the_ID(), 'text')[0];
             $imgSize = get_post_meta(get_the_ID(), 'size')[0];
             $imgDate = get_post_meta(get_the_ID(), 'date')[0];
