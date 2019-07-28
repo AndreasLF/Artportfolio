@@ -1,5 +1,8 @@
 <?php
 
+/*
+* Customize theme, adds new customization settings
+*/
 function ap_customize_register($wp_customize){
     //Creates a new panel
     $wp_customize->add_panel('artportfolio',array(

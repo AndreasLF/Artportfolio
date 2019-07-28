@@ -95,13 +95,21 @@
 
     });
 
+
+
+
+    // Slideshow button click: Open slideshow
     $('.ap-slideshow-btn-story').click(function(){
       toggleStory();
     });
 
+    //Document click: Hides story window if open
     $('.ap-slideshow-story').click(function(){
-      toggleStory();
+        if(storyToggled){
+            toggleStory();
+        }
     });
+
 
 
     /*
@@ -143,6 +151,7 @@
     * @param imgBlockDiv is the div element containing the current image in the gallery
     */
     function toggleStory(){
+        // If the story is already shown
         if(storyToggled){
           $('.ap-slideshow-btn-story').show();
           $('.ap-slideshow-caption').show();
@@ -161,17 +170,22 @@
 
 
     function setStoryContent(imgBlockDiv){
+                // Define variables
                 var text = imgBlockDiv.data("ap-img-text");
                 var size = imgBlockDiv.data("ap-img-size");
                 var date = imgBlockDiv.data("ap-img-date");
                 var story = imgBlockDiv.data("ap-img-story");
                 var storyImg = imgBlockDiv.data("ap-img-story-src");
 
+                // If the post has a story the button will be showed and the story added to the html
                 if(story){
+                  //Show story button
                   $('.ap-slideshow-btn-story').show();
 
+                  // Define caption
                   var caption = "";
 
+                  // Creates the caption depending on the information for the post
                   if ((typeof text !== typeof undefined && text !== false)) {
                     caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
                   }
@@ -182,17 +196,20 @@
                     caption += '&nbsp;&nbsp;  <i class="far fa-calendar"></i> &nbsp;' + date + '&nbsp;';
                   }
 
+                  // Concatenate the caption and the story text
                   var content = caption + '<hr class="ap-story-divider"/>' + story + '<br/><br/>';
 
+                  // If the story has an image, add it to the content
                   if(storyImg){
                     content += '<img class="ap-story-img" src="'+ storyImg +'"/>' + '<br/><br/>';
                   }
 
-
+                  // Update the html
                   $('.ap-slideshow-story-content').html(content);
 
                 }
                 else{
+                  //No story, hide button
                   $('.ap-slideshow-btn-story').hide();
                 }
 
@@ -200,11 +217,14 @@
 
     // Change image with arrow buttons
     $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
+    switch(e.which){
+        // Left key click
+        case 37:
 
+            // Gets number of total slides
             var totalSlides = $('.ap-grid').data('ap-total-slides');
 
+            // Defines the current slide
             if(currentImage == 0){
               currentImage = totalSlides - 1;
             }else{
@@ -224,9 +244,12 @@
 
         break;
 
-        case 39: // right
+        // Right key click
+        case 39:
+            // Gets number of total slides
             var totalSlides = $('.ap-grid').data('ap-total-slides');
 
+            // Defines the current slide
             if(currentImage == totalSlides - 1){
               currentImage = 0;
             }else{

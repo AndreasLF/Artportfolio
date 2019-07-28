@@ -1,5 +1,8 @@
 
 <?php
+/*
+* Theme setup
+*/
 function ap_setup_theme() {
   //Add suppport for thumbnails
   add_theme_support( 'post-thumbnails' );
