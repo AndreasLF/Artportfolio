@@ -221,46 +221,41 @@
         // Left key click
         case 37:
 
-            // Gets number of total slides
             var totalSlides = $('.ap-grid').data('ap-total-slides');
 
-            // Defines the current slide
             if(currentImage == 0){
               currentImage = totalSlides - 1;
             }else{
               currentImage = currentImage - 1;
             }
 
-            //Hide story if shown
-            if(storyToggled == true){
-              toggleStory();
-            };
-
             //Change image source
             $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
             //set caption
             setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
+            //Hide story if shown
+            if(storyToggled == true){
+              toggleStory();
+            };
+
+            // set story
+            setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
         break;
 
         // Right key click
         case 39:
-            // Gets number of total slides
             var totalSlides = $('.ap-grid').data('ap-total-slides');
 
-            // Defines the current slide
+
             if(currentImage == totalSlides - 1){
               currentImage = 0;
             }else{
               currentImage = currentImage + 1;
             }
 
-            //Hide story if shown
-            if(storyToggled == true){
-              toggleStory();
-            };
-
             //Change image source
             $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
@@ -268,7 +263,13 @@
             setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
 
+            //Hide story if shown
+            if(storyToggled == true){
+              toggleStory();
+            };
 
+            // set story
+            setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
         break;
         default: return; // exit this handler for other keys
     }

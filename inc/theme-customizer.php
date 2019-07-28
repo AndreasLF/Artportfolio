@@ -30,6 +30,4 @@ function ap_customize_register($wp_customize){
     // var_dump($wp_customize);
     // echo '</pre>';
 }
-
-
 ?>

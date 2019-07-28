@@ -1,15 +1,11 @@
 <?php
-
-
 /*--------------------*\
         Setup
 \*--------------------*/
 
-
 /*--------------------*\
         Includes
 \*--------------------*/
-
 include(get_template_directory().'/inc/enqueue.php');
 include(get_template_directory().'/inc/setup.php');
 require_once(get_template_directory().'/lib/bs4navwalker.php');
@@ -20,9 +16,6 @@ include(get_template_directory().'/inc/customizer/social.php');
 include(get_template_directory().'/inc/customizer/bio.php');
 include(get_template_directory().'/inc/customizer/frontpage.php');
 
-
-
-
 /*--------------------*\
         Hooks
 \*--------------------*/
@@ -32,7 +25,6 @@ add_action('wp_enqueue_scripts','ap_enqueue');
 add_action('after_setup_theme','ap_setup_theme');
 
 add_action('customize_register','ap_customize_register');
-
 
 /*--------------------*\
         Shortcode
@@ -54,5 +46,4 @@ add_action('draft_to_publish', 'autoset_featured');
 add_action('new_to_publish', 'autoset_featured');
 add_action('pending_to_publish', 'autoset_featured');
 add_action('future_to_publish', 'autoset_featured');
-
 ?>

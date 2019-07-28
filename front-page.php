@@ -7,7 +7,9 @@
       <!-- Image on frontpage -->
 
       <?php if(get_theme_mod('ap_front_image_choice_handle') == 'custom'){?>
-        <img class="ap-frontpage-img" src="<?php  echo get_theme_mod('ap_front_image_handle'); ?>" />
+        <div class="ap-front-img-container">
+          <img class="ap-front-img" src="<?php  echo get_theme_mod('ap_front_image_handle'); ?>" />
+        </div>
       <?php }
       else {
         // Get the latest published post
@@ -20,7 +22,9 @@
          $imgSrc = get_post_meta( $recent_posts[0]['ID'], 'image' )[0];
 
         ?>
-        <img class="ap-frontpage-img" src="<?php echo $imgSrc; ?>" />
+        <div class="ap-front-img-container">
+          <img class="ap-front-img" src="<?php echo $imgSrc; ?>" />
+        </div>
       <?php } ?>
 
   </div><!-- /container -->

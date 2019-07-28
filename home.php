@@ -1,9 +1,4 @@
-
-
-
 <?php get_header(); ?>
-
-
 <?php
 // Get modal template
 get_template_part('template-parts/img-modal');
