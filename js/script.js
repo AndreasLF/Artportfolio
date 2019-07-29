@@ -45,57 +45,13 @@
 
     // Next button click
     $('.ap-slideshow-btn-next').click(function(){
-        var totalSlides = $('.ap-grid').data('ap-total-slides');
-
-        if(currentImage == totalSlides - 1){
-          currentImage = 0;
-        }else{
-          currentImage = currentImage + 1;
-        }
-
-        //Change image source
-        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
-
-        //set caption
-        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
-        //Hide story if shown
-        if(storyToggled == true){
-          toggleStory();
-        };
-
-        // set story
-        setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
+        nextSlide();
     });
 
     // Prev button click
     $('.ap-slideshow-btn-prev').click(function(){
-        var totalSlides = $('.ap-grid').data('ap-total-slides');
-
-        if(currentImage == 0){
-          currentImage = totalSlides - 1;
-        }else{
-          currentImage = currentImage - 1;
-        }
-        //Change image source
-        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
-
-        //set caption
-        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
-
-        //Hide story if shown
-        if(storyToggled == true){
-          toggleStory();
-        };
-
-        // set story
-        setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
+        prevSlide();
     });
-
-
 
 
     // Slideshow button click: Open slideshow
@@ -220,61 +176,100 @@
     switch(e.which){
         // Left key click
         case 37:
-
-            var totalSlides = $('.ap-grid').data('ap-total-slides');
-
-            if(currentImage == 0){
-              currentImage = totalSlides - 1;
-            }else{
-              currentImage = currentImage - 1;
-            }
-
-            //Change image source
-            $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
-
-            //set caption
-            setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
-            //Hide story if shown
-            if(storyToggled == true){
-              toggleStory();
-            };
-
-            // set story
-            setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
+          prevSlide();
         break;
 
         // Right key click
         case 39:
-            var totalSlides = $('.ap-grid').data('ap-total-slides');
-
-
-            if(currentImage == totalSlides - 1){
-              currentImage = 0;
-            }else{
-              currentImage = currentImage + 1;
-            }
-
-            //Change image source
-            $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
-
-            //set caption
-            setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
-
-            //Hide story if shown
-            if(storyToggled == true){
-              toggleStory();
-            };
-
-            // set story
-            setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+            nextSlide();
         break;
         default: return; // exit this handler for other keys
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+
+/*
+* swipeleft to change the image in the slideshowS
+*/
+$(function(){
+  // Bind the swipeleftHandler callback function to the swipe event on div.box
+  $( "div.modal" ).on( "swipeleft", swipeleftHandler );
+
+  // Callback function references the event target and adds the 'swipeleft' class to it
+  function swipeleftHandler( event ){
+      nextSlide();
+  }
+});
+
+/*
+* swipe right to change image in slideshow
+*/
+$(function(){
+  // Bind the swipeleftHandler callback function to the swipe event on div.box
+  $( "div.modal" ).on( "swiperight", swiperightHandler );
+
+  // Callback function references the event target and adds the 'swipeleft' class to it
+  function swiperightHandler( event ){
+      prevSlide();
+  }
+});
+
+
+
+/*
+* Change to the next slide in the slideshow
+*/
+function nextSlide(){
+
+    var totalSlides = $('.ap-grid').data('ap-total-slides');
+
+    if(currentImage == totalSlides - 1){
+      currentImage = 0;
+    }else{
+      currentImage = currentImage + 1;
+    }
+
+    //Change image source
+    $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+
+    //set caption
+    setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+    //Hide story if shown
+    if(storyToggled == true){
+      toggleStory();
+    };
+
+    // set story
+    setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+}
+
+function prevSlide(){
+    var totalSlides = $('.ap-grid').data('ap-total-slides');
+
+    if(currentImage == 0){
+      currentImage = totalSlides - 1;
+    }else{
+      currentImage = currentImage - 1;
+    }
+    //Change image source
+    $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+
+    //set caption
+    setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+
+    //Hide story if shown
+    if(storyToggled == true){
+      toggleStory();
+    };
+
+    // set story
+    setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+}
+
 
 
   });

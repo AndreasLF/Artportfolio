@@ -30,11 +30,18 @@ function ap_enqueue(){
     // Enqueue jquery
     wp_enqueue_script('jquery');
 
+    //jquery mobile
+    wp_register_script('jquery_mobile','https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js',array('jquery'));
+    wp_enqueue_script('jquery_mobile');
+
+
     //Register scripts
-  wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery'));
+    wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery','jquery_mobile'));
 
     // wp_register_script('ap_bootstrap_js', get_template_directory_uri()."/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js",array('jquery'));
-    wp_register_script('ap_script', get_template_directory_uri()."/js/script.js",array('jquery','ap_bootstrap_js'));
+    wp_register_script('ap_script', get_template_directory_uri()."/js/script.js",array('jquery','jquery_mobile','ap_bootstrap_js'));
+
+
 
     //Enqueue scripts
     wp_enqueue_script('ap_bootstrap_js');

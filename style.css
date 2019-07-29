@@ -138,6 +138,10 @@ h2{
   AP - Image slideshow
 \*--------------------*/
 
+.modal{
+  padding: 0 !important;
+}
+
 .ap-modal-full {
     min-width: 100%;
     margin: 0;
