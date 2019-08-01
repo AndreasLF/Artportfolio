@@ -1,7 +1,6 @@
-
 (function($) {
-
   $(document).ready(function(){
+
 
     var currentImage = null;
     var storyToggled = false;
@@ -270,6 +269,15 @@ function prevSlide(){
 
 }
 
+
+$(".ap-gallery-block").hover(
+      function(){
+         $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
+     },
+     function(){
+       $(this).find(".ap-gallery-block-overlay").css("opacity", "0");
+     }
+   );
 
 
   });

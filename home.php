@@ -53,25 +53,32 @@ function ap_create_gallery($images = null){
     ?>
     <!-- Grid -->
     <div class="ap-grid" data-ap-total-slides="<?php echo count($images); ?>">
-    <?php
-      // loop through images
-      foreach($images as $n=>$image){
-        ?>
-        <!-- Gallery block -->
-        <?php // Creates a div with the information needed provided in data- attributes - image number, text, size ?>
-        <div class="ap-gallery-block"
-        data-ap-slide-no="<?php echo $n; ?>"
-        <?php if($image['text']){ echo 'data-ap-img-text="'. $image['text'].'"';}; ?>
-        <?php if($image['size']){ echo 'data-ap-img-size="'. $image['size'].'"';}; ?>
-        <?php if($image['date']){ echo 'data-ap-img-date="'. date('Y',strtotime($image['date'])).'"';}; ?>
-        <?php if($image['story']){ echo 'data-ap-img-story="'. $image['story'].'"';}; ?>
-        <?php if($image['story-img']){ echo 'data-ap-img-story-src="'. $image['story-img'].'"';}; ?>
-        >
-          <img src="<?php echo $image['src']; ?>">
-        </div> <!-- /Gallery block -->
-        <?php
-      }
-    ?>
+            <?php
+            // loop through images
+            foreach($images as $n=>$image){
+              ?>
+              <!-- Gallery block -->
+              <?php // Creates a div with the information needed provided in data- attributes - image number, text, size ?>
+              <div class="ap-gallery-block"
+              data-ap-slide-no="<?php echo $n; ?>"
+              <?php if($image['text']){ echo 'data-ap-img-text="'. $image['text'].'"';}; ?>
+              <?php if($image['size']){ echo 'data-ap-img-size="'. $image['size'].'"';}; ?>
+              <?php if($image['date']){ echo 'data-ap-img-date="'. date('Y',strtotime($image['date'])).'"';}; ?>
+              <?php if($image['story']){ echo 'data-ap-img-story="'. $image['story'].'"';}; ?>
+              <?php if($image['story-img']){ echo 'data-ap-img-story-src="'. $image['story-img'].'"';}; ?>
+              >
+                <img src="<?php echo $image['src']; ?>">
+                <div class="ap-gallery-block-overlay unselectable">
+                  <?php if($image['text']){ echo '<i class="fas fa-palette"></i> '. $image['text'];}; ?>
+                  <br />
+                  <?php if($image['size']){ echo '<i class="fas fa-ruler"></i> '. $image['size'];}; ?>
+                  <br />
+                  <?php if($image['date']){ echo '<i class="far fa-calendar"></i> '. date('Y',strtotime($image['date']));}; ?>
+                </div>
+              </div> <!-- /Gallery block -->
+              <?php
+            }
+            ?>
     </div>
     <!-- /Grid -->
     <?php

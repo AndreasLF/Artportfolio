@@ -39,12 +39,15 @@ function ap_enqueue(){
     wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery','jquery_mobile'));
 
     // wp_register_script('ap_bootstrap_js', get_template_directory_uri()."/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js",array('jquery'));
-    wp_register_script('ap_script', get_template_directory_uri()."/js/script.js",array('jquery','jquery_mobile','ap_bootstrap_js'));
+    wp_register_script('freetile', get_template_directory_uri()."/lib/freetile/jquery.freetile.min.js",array('jquery','jquery_mobile','ap_bootstrap_js'));
+
+    wp_register_script('ap_script', get_template_directory_uri()."/js/script.js",array('jquery','jquery_mobile','ap_bootstrap_js','freetile'));
 
 
 
     //Enqueue scripts
     wp_enqueue_script('ap_bootstrap_js');
+    wp_enqueue_script('ap_script');
     wp_enqueue_script('ap_script');
 
 
