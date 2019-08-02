@@ -1,10 +1,9 @@
 (function($) {
   $(document).ready(function(){
 
-
+    //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
     var storyToggled = false;
-
 
 
     // Gallery image click
@@ -269,7 +268,9 @@ function prevSlide(){
 
 }
 
-
+/*
+*  Shows the image information while hovering over the image
+*/
 $(".ap-gallery-block").hover(
       function(){
          $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
