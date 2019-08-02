@@ -188,30 +188,14 @@
 
 
 /*
-* swipeleft to change the image in the slideshowS
+* swipeleft to change the image in the slideshow
 */
-// $(function(){
-//   // Bind the swipeleftHandler callback function to the swipe event on div.box
-//   $( "div.modal" ).on( "swipeleft", swipeleftHandler );
-//
-//   // Callback function references the event target and adds the 'swipeleft' class to it
-//   function swipeleftHandler( event ){
-//       nextSlide();
-//   }
-// });
-
-/*
-* swipe right to change image in slideshow
-*/
-// $(function(){
-//   // Bind the swipeleftHandler callback function to the swipe event on div.box
-//   $( "div.modal" ).on( "swiperight", swiperightHandler );
-//
-//   // Callback function references the event target and adds the 'swipeleft' class to it
-//   function swiperightHandler( event ){
-//       prevSlide();
-//   }
-// });
+$('div.modal').hammer().on("swipeleft", function(event) {
+   nextSlide();
+});
+$('div.modal').hammer().on("swiperight", function(event) {
+   prevSlide();
+});
 
 
 

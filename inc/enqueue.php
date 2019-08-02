@@ -30,25 +30,22 @@ function ap_enqueue(){
     // Enqueue jquery
     wp_enqueue_script('jquery');
 
-    //jquery mobile
-    // wp_register_script('jquery_mobile','https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js',array('jquery'));
-    // wp_enqueue_script('jquery_mobile');
+    //Hammer js
+     wp_register_script('hammer_js','https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js',array('jquery'));
+     wp_enqueue_script('hammer_js');
+     wp_register_script('jquery_hammer_js',get_template_directory_uri().'/lib/jquery-hammer-js/jquery.hammer.js',array('jquery','hammer_js'));
+     wp_enqueue_script('jquery_hammer_js');
 
 
-    //Register scripts
+    //Register and enqueue bootstrap
     wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery'));
-
-    // wp_register_script('ap_bootstrap_js', get_template_directory_uri()."/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js",array('jquery'));
-
-    wp_register_script('ap_script', get_template_directory_uri()."/js/script.js",array('jquery','ap_bootstrap_js'));
-
-
-
-    //Enqueue scripts
     wp_enqueue_script('ap_bootstrap_js');
-    wp_enqueue_script('ap_script');
-    wp_enqueue_script('ap_script');
 
+    // Load gallery script if on the blog/gallery page
+    if(is_home()){
+      wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js'));
+      wp_enqueue_script('ap_gallery_script');
+    }
 
 }
  ?>
