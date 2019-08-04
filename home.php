@@ -95,7 +95,7 @@ function ap_create_gallery($images = null){
               <?php // Creates a div with the information needed provided in data- attributes - image number, text, size ?>
               <div class="ap-gallery-block"
               data-ap-slide-no="<?php echo $n; ?>"
-              data-post-id="<?php echo $image['post-id'] ?>"
+              data-ap-post-id="<?php echo $image['post-id'] ?>"
               <?php if($image['text']){ echo 'data-ap-img-text="'. $image['text'].'"';}; ?>
               <?php if($image['size']){ echo 'data-ap-img-size="'. $image['size'].'"';}; ?>
               <?php if($image['date']){ echo 'data-ap-img-date="'. $image['date'].'"';}; ?>

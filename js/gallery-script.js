@@ -3,8 +3,7 @@
 
     //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
-    var storyToggled = false;
-
+    var storyToggled = true;
 
     // Gallery image click
     $('.ap-gallery-block').click(function(){
@@ -16,11 +15,12 @@
         //set caption
         setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
-        // set story
-        setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-        // Hide story slideshow story div
-        $('.ap-slideshow-story').hide();
-
+        // Sets the story by making an ajax call to the server
+        setStoryAjax();
+        //Hide story if shown
+        if(storyToggled == true){
+          toggleStory();
+        };
 
         // open modal
         $('.ap-slideshow-modal').modal('show');
@@ -122,53 +122,6 @@
         }
     }
 
-
-    function setStoryContent(imgBlockDiv){
-                // Define variables
-                var text = imgBlockDiv.data("ap-img-text");
-                var size = imgBlockDiv.data("ap-img-size");
-                var date = imgBlockDiv.data("ap-img-date");
-                var story = imgBlockDiv.data("ap-img-story");
-                var storyImg = imgBlockDiv.data("ap-img-story-src");
-
-                // If the post has a story the button will be showed and the story added to the html
-                if(story){
-                  //Show story button
-                  $('.ap-slideshow-btn-story').show();
-
-                  // Define caption
-                  var caption = "";
-
-                  // Creates the caption depending on the information for the post
-                  if ((typeof text !== typeof undefined && text !== false)) {
-                    caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
-                  }
-                  if ((typeof size !== typeof undefined && size !== false)){
-                    caption += '&nbsp;&nbsp;  <i class="fas fa-ruler"></i> &nbsp;' + size + '&nbsp;';
-                  }
-                  if ((typeof date !== typeof undefined && date !== false)){
-                    caption += '&nbsp;&nbsp;  <i class="far fa-calendar"></i> &nbsp;' + date + '&nbsp;';
-                  }
-
-                  // Concatenate the caption and the story text
-                  var content = caption + '<hr class="ap-story-divider"/>' + story + '<br/><br/>';
-
-                  // If the story has an image, add it to the content
-                  if(storyImg){
-                    content += '<img class="ap-story-img" src="'+ storyImg +'"/>' + '<br/><br/>';
-                  }
-
-                  // Update the html
-                  $('.ap-slideshow-story-content').html(content);
-
-                }
-                else{
-                  //No story, hide button
-                  $('.ap-slideshow-btn-story').hide();
-                }
-
-    }
-
     // Change image with arrow buttons
     $(document).keydown(function(e) {
     switch(e.which){
@@ -187,81 +140,158 @@
 });
 
 
-/*
-* swipeleft to change the image in the slideshow
-*/
-$('div.modal').hammer().on("swipeleft", function(event) {
-   nextSlide();
-});
-$('div.modal').hammer().on("swiperight", function(event) {
-   prevSlide();
-});
+    /*
+    * swipeleft to change the image in the slideshow
+    */
+    $('div.modal').hammer().on("swipeleft", function(event) {
+       nextSlide();
+    });
+    $('div.modal').hammer().on("swiperight", function(event) {
+       prevSlide();
+    });
 
-/*
-* Change to the next slide in the slideshow
-*/
-function nextSlide(){
+    /*
+    * Change to the next slide in the slideshow
+    */
+    function nextSlide(){
 
-    var totalSlides = $('.ap-grid').data('ap-total-slides');
+        var totalSlides = $('.ap-grid').data('ap-total-slides');
 
-    if(currentImage == totalSlides - 1){
-      currentImage = 0;
-    }else{
-      currentImage = currentImage + 1;
+        if(currentImage == totalSlides - 1){
+          currentImage = 0;
+        }else{
+          currentImage = currentImage + 1;
+        }
+
+        //Change image source
+        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+
+        //set caption
+        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+
+        //Hide story if shown
+        if(storyToggled == true){
+          toggleStory();
+        };
+
+        // Sets the story by making an ajax call to the server
+        setStoryAjax();
+        //Hide story if shown
+        if(storyToggled == true){
+          toggleStory();
+        };
     }
 
-    //Change image source
-    $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+    /*
+    * Change to the previous slide in the slideshow
+    */
+    function prevSlide(){
+        var totalSlides = $('.ap-grid').data('ap-total-slides');
 
-    //set caption
-    setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+        if(currentImage == 0){
+          currentImage = totalSlides - 1;
+        }else{
+          currentImage = currentImage - 1;
+        }
+        //Change image source
+        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
-    //Hide story if shown
-    if(storyToggled == true){
-      toggleStory();
-    };
+        //set caption
+        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
-    // set story
-    setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-}
 
-function prevSlide(){
-    var totalSlides = $('.ap-grid').data('ap-total-slides');
+        //Hide story if shown
+        if(storyToggled == true){
+          toggleStory();
+        };
 
-    if(currentImage == 0){
-      currentImage = totalSlides - 1;
-    }else{
-      currentImage = currentImage - 1;
+        // Sets the story by making an ajax call to the server
+        setStoryAjax();
+        //Hide story if shown
+        if(storyToggled == true){
+          toggleStory();
+        };
     }
-    //Change image source
-    $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
 
-    //set caption
-    setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+    /*
+    *  Shows the image information while hovering over the image
+    */
+    $(".ap-gallery-block").hover(
+          function(){
+             $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
+         },
+         function(){
+           $(this).find(".ap-gallery-block-overlay").css("opacity", "0");
+         }
+       );
+
+    /*
+    * Gets the image story via an AJAX call and sets the story
+    */
+    function setStoryAjax(){
+      var imgBlockDiv = $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']");
+
+      var id = imgBlockDiv.data('ap-post-id');
+
+      // Make ajax call
+       $.ajax({
+         url : ajaxgallerystory.ajaxurl,
+         type : 'post',
+         dataType: 'html',
+         data : {
+           action: 'ajax_gallery_story',
+           post_id: id //send the post id
+         },
+         success : function( response ) {
+           // JSON parse received string
+           var obj = JSON.parse(response);
+
+           console.log(obj.has_content);
+           //If the slideshow image has "a story"/extra content
+           if(obj.has_content){
+             // Define variables
+             var text = imgBlockDiv.data("ap-img-text");
+             var size = imgBlockDiv.data("ap-img-size");
+             var date = imgBlockDiv.data("ap-img-date");
 
 
-    //Hide story if shown
-    if(storyToggled == true){
-      toggleStory();
-    };
 
-    // set story
-    setStoryContent($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+             var caption = "";
 
-}
+             // Creates the caption depending on the information for the post
+             if ((typeof text !== typeof undefined && text !== false)) {
+               caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
+             }
+             if ((typeof size !== typeof undefined && size !== false)){
+               caption += '&nbsp;&nbsp;  <i class="fas fa-ruler"></i> &nbsp;' + size + '&nbsp;';
+             }
+             if ((typeof date !== typeof undefined && date !== false)){
+               caption += '&nbsp;&nbsp;  <i class="far fa-calendar"></i> &nbsp;' + date + '&nbsp;';
+             }
 
-/*
-*  Shows the image information while hovering over the image
-*/
-$(".ap-gallery-block").hover(
-      function(){
-         $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
-     },
-     function(){
-       $(this).find(".ap-gallery-block-overlay").css("opacity", "0");
-     }
-   );
+             // Concatenate the caption and the story text
+             var content = caption + '<hr class="ap-story-divider"/>' + obj.data + '<br/><br/>';
 
+             // Show the info button and set the content
+             $('.ap-slideshow-btn-story').show();
+             $('.ap-slideshow-story-content').html(content);
+
+             // Sets the image source
+             $('.ap-slideshow-img').attr('src', obj.img_src);
+
+           }
+           else{
+             // Hide the story and only update image
+             $('.ap-slideshow-btn-story').hide();
+             $('.ap-slideshow-img').attr('src', obj.img_src);
+           }
+         },
+         error : function(err){
+           console.log('error');
+           $('.ap-slideshow-btn-story').hide();
+         }
+       });
+    }
 
   });
 

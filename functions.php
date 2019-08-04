@@ -17,6 +17,9 @@ include(get_template_directory().'/inc/customizer/social.php');
 include(get_template_directory().'/inc/customizer/bio.php');
 include(get_template_directory().'/inc/customizer/frontpage.php');
 
+include(get_template_directory().'/inc/ajax-gallery-story.php');
+
+
 /*--------------------*\
         Hooks
 \*--------------------*/
@@ -28,6 +31,12 @@ add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 add_action('after_setup_theme','ap_setup_theme');
 
 add_action('customize_register','ap_customize_register');
+
+
+
+// ajax
+add_action( 'wp_ajax_nopriv_ajax_gallery_story', 'ap_ajax_gallery_story' );
+add_action( 'wp_ajax_ajax_gallery_story', 'ap_ajax_gallery_story' );
 
 /*--------------------*\
         Shortcode
