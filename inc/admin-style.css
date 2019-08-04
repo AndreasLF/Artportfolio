@@ -1,0 +1,15 @@
+label.setting[data-setting="caption"]{
+  display: none !important;
+}
+
+label.setting[data-setting="description"]{
+  display: none !important;
+}
+
+label.setting[data-setting="alt"]{
+  display: none !important;
+}
+
+#alt-text-description{
+  display: none !important;
+}

@@ -197,8 +197,6 @@ $('div.modal').hammer().on("swiperight", function(event) {
    prevSlide();
 });
 
-
-
 /*
 * Change to the next slide in the slideshow
 */

@@ -24,6 +24,9 @@ function ap_enqueue(){
     wp_enqueue_style('ap_fontawesome');
     wp_enqueue_style('ap_gfonts');
 
+
+
+
     /*--------------------*\
             Scripts
     \*--------------------*/
