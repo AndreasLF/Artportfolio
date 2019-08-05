@@ -46,6 +46,7 @@ function ap_enqueue(){
 
     // Load gallery script if on the blog/gallery page
     if(is_home()){
+      // Gallery script
       wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js'));
       wp_enqueue_script('ap_gallery_script');
 
@@ -53,6 +54,17 @@ function ap_enqueue(){
            'ajaxurl' => admin_url( 'admin-ajax.php' ),
       ));
 
+      // AJAX pagination
+      global $wp_query;
+
+      wp_register_script('ap_ajax_pagination', get_template_directory_uri()."/js/ajax-pagination-button.js",array('ap_gallery_script'));
+
+      wp_enqueue_script('ap_ajax_pagination');
+
+      wp_localize_script( 'ap_ajax_pagination', 'ajaxpagination', array(
+           'ajaxurl' => admin_url( 'admin-ajax.php' ),
+           'query_vars' => json_encode( $wp_query->query )
+         ));
 
     }
 

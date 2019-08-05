@@ -18,6 +18,8 @@ include(get_template_directory().'/inc/customizer/bio.php');
 include(get_template_directory().'/inc/customizer/frontpage.php');
 
 include(get_template_directory().'/inc/ajax-gallery-story.php');
+include(get_template_directory().'/inc/ajax-pagination.php');
+
 
 
 /*--------------------*\
@@ -37,6 +39,10 @@ add_action('customize_register','ap_customize_register');
 // ajax
 add_action( 'wp_ajax_nopriv_ajax_gallery_story', 'ap_ajax_gallery_story' );
 add_action( 'wp_ajax_ajax_gallery_story', 'ap_ajax_gallery_story' );
+
+//AJAX pagination
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'ap_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'ap_ajax_pagination' );
 
 /*--------------------*\
         Shortcode

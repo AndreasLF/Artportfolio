@@ -4,9 +4,11 @@
     //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
     var storyToggled = true;
-
-    // Gallery image click
-    $('.ap-gallery-block').click(function(){
+    /*
+    * Gallery image click
+    *  Used on("click") instead of click() to make sure the event works after more gallery blocks are added to the DOM
+    */
+    $( ".ap-grid" ).on( "click", ".ap-gallery-block", function( event ) {
         currentImage = $(this).data('ap-slide-no');
 
         // set slideshow image
@@ -154,8 +156,8 @@
     * Change to the next slide in the slideshow
     */
     function nextSlide(){
-
         var totalSlides = $('.ap-grid').data('ap-total-slides');
+        console.log(totalSlides);
 
         if(currentImage == totalSlides - 1){
           currentImage = 0;
@@ -215,15 +217,14 @@
 
     /*
     *  Shows the image information while hovering over the image
+    *  Used on("mouseover/mouseout") instead of hover() to make sure the event works after more gallery blocks are added to the DOM
     */
-    $(".ap-gallery-block").hover(
-          function(){
-             $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
-         },
-         function(){
-           $(this).find(".ap-gallery-block-overlay").css("opacity", "0");
-         }
-       );
+    $( ".ap-grid" ).on( "mouseover", ".ap-gallery-block", function( event ) {
+        $(this).find(".ap-gallery-block-overlay").css("opacity", "1");
+    });
+    $( ".ap-grid" ).on( "mouseleave", ".ap-gallery-block", function( event ) {
+        $(this).find(".ap-gallery-block-overlay").css("opacity", "0");
+    });
 
     /*
     * Gets the image story via an AJAX call and sets the story

@@ -4,11 +4,11 @@
 get_template_part('template-parts/img-modal');
 ?>
 
-<!--Container -->
 
 <?php
 
 ?>
+<!--Container -->
 <div class="container">
 
   <br />
@@ -18,7 +18,7 @@ get_template_part('template-parts/img-modal');
 
 $args = array(
                           'post_type' => 'post',
-                          'posts_per_page' => 20,
+                          'posts_per_page' => 10,
                           'orderby' => 'date', //Order by date
                           'order' => 'DESC', //Descending order
                           'meta_query' => array(
@@ -70,12 +70,22 @@ $args = array(
       // no posts found
   }
 ?>
+
+<div class="text-center">
+  <div id="gallery-preloader" class="spinner-border d-none" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <br />
+  <button type="button" class="btn btn-secondary ajax-pagination-btn">Load more</button>
+</div>
+
     </div><!-- /container -->
 
 <?php get_footer(); ?>
 
 
-<?php /*
+<?php
+/*
 * This function creates a photo gallery from an array of photo sources
 *
 * @param array $images nested array of image information
@@ -86,7 +96,7 @@ function ap_create_gallery($images = null){
   if($images){
     ?>
     <!-- Grid -->
-    <div class="ap-grid" data-ap-total-slides="<?php echo count($images); ?>">
+    <div class="ap-grid" data-ap-total-slides="<?php echo count($images); ?>" data-ap-page-count="2">
             <?php
             // loop through images
             foreach($images as $n=>$image){
