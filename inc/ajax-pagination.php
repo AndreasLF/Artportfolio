@@ -61,7 +61,7 @@ function ap_ajax_pagination() {
         ?>
             <div class="section"></div>
             <div class="divider"></div>
-            <p id='pagination-end' class='flow-text center grey-text text-lighten-1'><?php _e('That\'s it', 'artportfolio'); ?> &nbsp<i class="far fa-grin-beam"></i></p>
+            <p id='pagination-end' hidden><?php _e('That\'s it', 'artportfolio'); ?></i></p>
         <?php
 
     }

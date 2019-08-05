@@ -1,6 +1,16 @@
 (function($) {
   $(document).ready(function(){
 
+
+$('.ap-grid').imagesLoaded(function(){
+  $('.ap-grid').masonry({
+    itemSelector : '.ap-gallery-block',
+    gutter: 5
+  });
+});
+
+
+
     //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
     var storyToggled = true;

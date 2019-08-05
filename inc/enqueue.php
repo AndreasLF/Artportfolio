@@ -40,14 +40,20 @@ function ap_enqueue(){
      wp_enqueue_script('jquery_hammer_js');
 
 
+     wp_register_script('masonry',get_template_directory_uri().'/lib/masonry/dist/masonry.pkgd.js',array('jquery','hammer_js'));
+
+
     //Register and enqueue bootstrap
     wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery'));
     wp_enqueue_script('ap_bootstrap_js');
 
     // Load gallery script if on the blog/gallery page
     if(is_home()){
+      wp_register_script('masonry',get_template_directory_uri().'/lib/masonry/dist/masonry.pkgd.js',array('jquery','hammer_js'));
+      wp_enqueue_script('masonry');
+
       // Gallery script
-      wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js'));
+      wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js', 'masonry'));
       wp_enqueue_script('ap_gallery_script');
 
       wp_localize_script( 'ap_gallery_script', 'ajaxgallerystory', array(

@@ -71,7 +71,7 @@ $args = array(
   }
 ?>
 
-<div class="text-center">
+<div id="ap-ajax-pagination-info" class="text-center">
   <div id="gallery-preloader" class="spinner-border d-none" role="status">
     <span class="sr-only">Loading...</span>
   </div>
