@@ -2,10 +2,15 @@
 function ap_ajax_gallery_story(){
 
   // get the post id
-  $postId = $_POST['post_id'];
+
+  if(isset($_POST['post_id'])){
+    if(is_numeric($_POST['post_id'])){
+      $postId = intval($_POST['post_id']);
+    }
+  }
 
   // Get the post thumbnail
-  $imgUrl = get_the_post_thumbnail_url($_POST['post_id']);
+  $imgUrl = get_the_post_thumbnail_url($postId);
 
   // If the post has content
   if(get_post($postId)->post_content){

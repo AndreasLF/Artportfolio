@@ -5,16 +5,22 @@ function ap_ajax_pagination() {
     $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 
     //Updates page number
+    // $numberOfImgs = null;
 
-    // Number of images based on the last image in the gallery. 1 is added cause the first image has the number 0
-    $numberOfImgs = $_POST['last_img_number'] + 1;
+    // Check if the post values are set and are numeric
+    if(isset($_POST['last_img_number'], $_POST['page'])){
+      // Number of images based on the last image in the gallery. 1 is added cause the first image has the number 0
+      if(is_numeric($_POST['last_img_number'])){
+        $numberOfImgs = intval($_POST['last_img_number']) + 1;
+      }
 
-
-    $query_vars['paged'] = $_POST['page'];
+      if(is_numeric($_POST['page'])){
+        $query_vars['paged'] = intval($_POST['page']);
+      }
+    }
 
     // Creates new query with the updated query vars
     $the_query = new WP_Query( $query_vars );
-
 
       if ( $the_query->have_posts() ) {
           $imgs = array();

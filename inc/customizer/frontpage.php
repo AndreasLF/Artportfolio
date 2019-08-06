@@ -18,7 +18,7 @@ function ap_front_customizer_section($wp_customize){
             Section
     \*--------------------*/
     $wp_customize->add_section('ap_front_section',array(
-        'title' => 'Frontpage',
+        'title' => esc_html__('Forside','artportfolio'),
         'priority' => 10,
         'panel' => 'artportfolio'
     ));
@@ -33,13 +33,13 @@ function ap_front_customizer_section($wp_customize){
             $wp_customize,
             'ap_front_image_choice_input',
             array(
-                'label'          => __( 'Social links position on bio site', 'artportfolio' ),
+                'label'          => esc_html__( 'Forsidebillede', 'artportfolio' ),
                 'section'        => 'ap_front_section',
                 'settings'       => 'ap_front_image_choice_handle',
                 'type'           => 'radio',
 		            'choices'        => array(
-                    'latest'  => 'Latest image in gallery',
-              			'custom'  => 'Custom image (remember to pick an image)',
+                    'latest'  => esc_html__('Seneste billede fra galleriet','artportfolio'),
+              			'custom'  => esc_html__('Tilpasset billede (Husk at vælge et billede)','artportfolio'),
             		),
             )
         )
@@ -50,7 +50,7 @@ function ap_front_customizer_section($wp_customize){
             $wp_customize,
             'ap_front_image_input',
             array(
-                'label'      => __( 'Upload a custom front page picture (Choose "Custom image" above)', 'artportfolio' ),
+                'label'      => esc_html__( 'Upload tilpasset forsidebillede (Vælg "Tilpasset billede" ovenfor)', 'artportfolio' ),
                 'section'    => 'ap_front_section',
                 'settings'   => 'ap_front_image_handle',
             )

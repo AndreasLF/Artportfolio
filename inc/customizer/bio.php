@@ -21,7 +21,7 @@ function ap_bio_customizer_section($wp_customize){
             Section
     \*--------------------*/
     $wp_customize->add_section('ap_bio_section',array(
-        'title' => 'Bio',
+        'title' => esc_html__('Bio','artportfolio'),
         'priority' => 40,
         'panel' => 'artportfolio'
     ));
@@ -37,7 +37,7 @@ function ap_bio_customizer_section($wp_customize){
             $wp_customize,
             'ap_bio_name_input',
             array(
-                'label'          => __( 'Navn', 'artportfolio' ),
+                'label'          => esc_html__( 'Navn', 'artportfolio' ),
                 'section'        => 'ap_bio_section',
                 'settings'       => 'ap_bio_name_handle',
             )
@@ -49,14 +49,14 @@ function ap_bio_customizer_section($wp_customize){
             $wp_customize,
             'ap_bio_social_input',
             array(
-                'label'          => __( 'Social links position on bio site', 'artportfolio' ),
+                'label'          => esc_html__( 'Positionen af sociale links på siden', 'artportfolio' ),
                 'section'        => 'ap_bio_section',
                 'settings'       => 'ap_bio_social_handle',
                 'type'           => 'radio',
 		            'choices'        => array(
-                    'none'  => 'No social links',
-              			'left'  => 'Below picture',
-              			'right' => 'Below text',
+                    'none'  => esc_html__('Ingen links','artportfolio'),
+              			'left'  => esc_html__('Under billedet','artportfolio'),
+              			'right' => esc_html__('Under teksten','artportfolio'),
             		),
             )
         )
@@ -67,7 +67,7 @@ function ap_bio_customizer_section($wp_customize){
             $wp_customize,
             'ap_bio_image_input',
             array(
-                'label'      => __( 'Upload a profile picture', 'artportfolio' ),
+                'label'      => esc_html__( 'Upload et profilbillede', 'artportfolio' ),
                 'section'    => 'ap_bio_section',
                 'settings'   => 'ap_bio_image_handle',
             )

@@ -6,8 +6,8 @@
 function ap_customize_register($wp_customize){
     //Creates a new panel
     $wp_customize->add_panel('artportfolio',array(
-      'title' => __('Artportfolio','artportfolio'),
-      'description' => '<p>'.__('This panel is used for customizing the theme','artportfolio').'</p>',
+      'title' => esc_html__('Artportfolio','artportfolio'),
+      'description' => '<p>'.esc_html__('Dette panel bruges til at tilpasse temaet','artportfolio').'</p>',
       'priority' => 160
     ));
 
