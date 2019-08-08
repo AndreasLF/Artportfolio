@@ -2,12 +2,15 @@
   $(document).ready(function(){
 
 
-$('.ap-grid').imagesLoaded(function(){
-  $('.ap-grid').masonry({
-    itemSelector : '.ap-gallery-block',
-    gutter: 5
-  });
-});
+    /*
+    *  Masonry setup
+    */
+    $('.ap-grid').imagesLoaded(function(){
+      $('.ap-grid').masonry({
+        itemSelector : '.ap-gallery-block',
+        gutter: 5
+      });
+    });
 
 
 
@@ -84,29 +87,15 @@ $('.ap-grid').imagesLoaded(function(){
     * @param imgBlockDiv is the div element containing the current image in the gallery
     */
     function setCaption(imgBlockDiv){
-      var text = imgBlockDiv.data("ap-img-text");
-      var size = imgBlockDiv.data("ap-img-size");
-      var date = imgBlockDiv.data("ap-img-date");
+      var $caption = getCaption(imgBlockDiv);
 
-      var caption = "";
-
-      if ((typeof text !== typeof undefined && text !== false)) {
-        caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
-      }
-      if ((typeof size !== typeof undefined && size !== false)){
-        caption += '&nbsp;&nbsp;  <i class="fas fa-ruler"></i> &nbsp;' + size + '&nbsp;';
-      }
-      if ((typeof date !== typeof undefined && date !== false)){
-        caption += '&nbsp;&nbsp;  <i class="far fa-calendar"></i> &nbsp;' + date + '&nbsp;';
-      }
-
-
-      if (caption) {
-          $('.ap-slideshow-caption').show();
-          $('.ap-slideshow-caption').html(caption);
+      if ($($caption).is(':empty') ) {
+        $('.ap-slideshow-caption').hide();
       }
       else{
-        $('.ap-slideshow-caption').hide();
+        $('.ap-slideshow-caption').show();
+        $('.ap-slideshow-caption').empty();
+        $('.ap-slideshow-caption').append($caption);
       }
     }
 
@@ -256,36 +245,20 @@ $('.ap-grid').imagesLoaded(function(){
          success : function( response ) {
            // JSON parse received string
            var obj = JSON.parse(response);
-
-           console.log(obj.has_content);
            //If the slideshow image has "a story"/extra content
            if(obj.has_content){
-             // Define variables
-             var text = imgBlockDiv.data("ap-img-text");
-             var size = imgBlockDiv.data("ap-img-size");
-             var date = imgBlockDiv.data("ap-img-date");
 
+             var $caption = getCaption(imgBlockDiv);
+             var $content = $('<div>',{'class': 'ap-story-content-container'});
+             $content.append(obj.data);
 
+             var $hr = $('<hr>', {'class': 'ap-story-divider'});
 
-             var caption = "";
-
-             // Creates the caption depending on the information for the post
-             if ((typeof text !== typeof undefined && text !== false)) {
-               caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
-             }
-             if ((typeof size !== typeof undefined && size !== false)){
-               caption += '&nbsp;&nbsp;  <i class="fas fa-ruler"></i> &nbsp;' + size + '&nbsp;';
-             }
-             if ((typeof date !== typeof undefined && date !== false)){
-               caption += '&nbsp;&nbsp;  <i class="far fa-calendar"></i> &nbsp;' + date + '&nbsp;';
-             }
-
-             // Concatenate the caption and the story text
-             var content = caption + '<hr class="ap-story-divider"/>' + obj.data + '<br/><br/>';
 
              // Show the info button and set the content
              $('.ap-slideshow-btn-story').show();
-             $('.ap-slideshow-story-content').html(content);
+             $('.ap-slideshow-story-content').empty();
+             $('.ap-slideshow-story-content').append($caption,$hr,$content);
 
              // Sets the image source
              $('.ap-slideshow-img').attr('src', obj.img_src);
@@ -294,7 +267,11 @@ $('.ap-grid').imagesLoaded(function(){
            else{
              // Hide the story and only update image
              $('.ap-slideshow-btn-story').hide();
-             $('.ap-slideshow-img').attr('src', obj.img_src);
+
+             if(obj.img_src)
+            {
+              $('.ap-slideshow-img-full').attr('src', encodeURI(obj.img_src));
+            }
            }
          },
          error : function(err){
@@ -302,6 +279,43 @@ $('.ap-grid').imagesLoaded(function(){
            $('.ap-slideshow-btn-story').hide();
          }
        });
+    }
+
+
+    /*
+    * Creates and returns a div containing the image information: Title, size, date
+    *
+    * @param imgBlockDiv div containing the data tags
+    * @return div containing caption information
+    */
+    function getCaption(imgBlockDiv){
+      // Define variables
+      var text = imgBlockDiv.data("ap-img-text");
+      var size = imgBlockDiv.data("ap-img-size");
+      var date = imgBlockDiv.data("ap-img-date");
+
+      var $caption = $('<div>',{'class': 'ap-caption-container'});
+
+      var $space = '&nbsp;';
+      // Creates the caption depending on the information for the post
+      if ((typeof text !== typeof undefined && text !== false)) {
+        var $i = $('<i>', {'class': 'fas fa-palette'});
+
+        $caption.append($space,$i,$space,text);
+        // $caption += '&nbsp;  <i class="fas fa-palette"></i> &nbsp;'  + text + '&nbsp;';
+      }
+      if ((typeof size !== typeof undefined && size !== false)){
+        var $i = $('<i>', {'class': 'fas fa-ruler'});
+
+        $caption.append($space,$space,$i,$space,size);
+      }
+      if ((typeof date !== typeof undefined && date !== false)){
+        var $i = $('<i>', {'class': 'fas fa-calendar'});
+
+        $caption.append($space,$space,$i,$space,date);
+      }
+
+      return $caption;
     }
 
   });

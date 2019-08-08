@@ -5,7 +5,8 @@ function ap_bio_customizer_section($wp_customize){
             Settings
     \*--------------------*/
     $wp_customize->add_setting('ap_bio_name_handle',array(
-        'default' => ''
+        'default' => '',
+        'sanitize_callback' => 'wp_filter_nohtml_kses' //removes all HTML from content
     ));
 
     $wp_customize->add_setting('ap_bio_social_handle',array(
@@ -13,7 +14,8 @@ function ap_bio_customizer_section($wp_customize){
     ));
 
     $wp_customize->add_setting('ap_bio_image_handle',array(
-        'default' => ''
+        'default' => '',
+        'sanitize_callback' => 'theme_slug_sanitize_file'
     ));
 
 
@@ -76,5 +78,8 @@ function ap_bio_customizer_section($wp_customize){
     );
 
 }
+
+
+
 
 ?>

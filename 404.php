@@ -6,12 +6,12 @@
   <!-- title -->
     <h3>
       <i class="fas fa-exclamation-circle"></i>
-          <?php _e('PAGE NOT FOUND','materialtheme')?>
+          <?php esc_html_e('PAGE NOT FOUND','artportfolio')?>
     </h3>
   <!-- /title -->
 
   <!-- error message -->
-    <?php _e('The page you were looking for does not exist.','materialtheme')?>
+    <?php esc_html_e('The page you were looking for does not exist.','artoportfolo')?>
   <!-- /error message -->
 
 

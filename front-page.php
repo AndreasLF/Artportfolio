@@ -8,7 +8,7 @@
 
       <?php if(get_theme_mod('ap_front_image_choice_handle') == 'custom'){?>
         <div class="ap-front-img-container">
-          <img class="ap-front-img" src="<?php  echo get_theme_mod('ap_front_image_handle'); ?>" />
+          <img class="ap-front-img" src="<?php  echo esc_url(get_theme_mod('ap_front_image_handle')); ?>" />
         </div>
       <?php }
       else {
@@ -23,7 +23,7 @@
 
         ?>
         <div class="ap-front-img-container">
-          <img class="ap-front-img" src="<?php echo $imgSrc; ?>" />
+          <img class="ap-front-img" src="<?php echo esc_url($imgSrc); ?>" />
         </div>
       <?php } ?>
 

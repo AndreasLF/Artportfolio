@@ -119,4 +119,22 @@ function add_image_attachment_fields_to_save( $post, $attachment ) {
 }
 add_filter("attachment_fields_to_save", "add_image_attachment_fields_to_save", null , 2);
 
+
+//file input sanitization function
+function theme_slug_sanitize_file( $file, $setting ) {
+
+    //allowed file types
+    $mimes = array(
+        'jpg|jpeg|jpe' => 'image/jpeg',
+        'gif'          => 'image/gif',
+        'png'          => 'image/png'
+    );
+
+    //check file type from file name
+    $file_ext = wp_check_filetype( $file, $mimes );
+
+    //if file has a valid mime type return it, otherwise return default
+    return ( $file_ext['ext'] ? $file : $setting->default );
+}
+
 ?>

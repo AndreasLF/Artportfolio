@@ -107,8 +107,7 @@ h2 {
   AP - Single post
 \*--------------------*/
 .ap-img-single {
-  max-width: 90%;
-  max-height: 50vh;
+  max-width: 100%;
 }
 
 .ap-img-single:hover {

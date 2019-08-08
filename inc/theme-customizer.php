@@ -21,7 +21,7 @@ function ap_customize_register($wp_customize){
     // ap_footer_customizer_section($wp_customize);
 
     //Change name of the tag_line section (Site Identiy)
-    $wp_customize->get_section('title_tagline')->title = 'General';
+    $wp_customize->get_section('title_tagline')->title = esc_html__('Generelt','artportfolio');
 
     //Removes tagline support
     $wp_customize->remove_control('blogdescription');

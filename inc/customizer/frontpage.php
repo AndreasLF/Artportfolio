@@ -6,11 +6,12 @@ function ap_front_customizer_section($wp_customize){
     \*--------------------*/
 
     $wp_customize->add_setting('ap_front_image_choice_handle',array(
-        'default' => 'latest'
+        'default' => 'latest',
     ));
 
     $wp_customize->add_setting('ap_front_image_handle',array(
-        'default' => ''
+        'default' => '',
+        'sanitize_callback' => 'theme_slug_sanitize_file'
     ));
 
 
@@ -60,5 +61,8 @@ function ap_front_customizer_section($wp_customize){
 
 
 }
+
+
+
 
 ?>

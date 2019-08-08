@@ -11,11 +11,11 @@ function ap_ajax_pagination() {
     if(isset($_POST['last_img_number'], $_POST['page'])){
       // Number of images based on the last image in the gallery. 1 is added cause the first image has the number 0
       if(is_numeric($_POST['last_img_number'])){
-        $numberOfImgs = intval($_POST['last_img_number']) + 1;
+        $numberOfImgs = absint($_POST['last_img_number'] + 1);
       }
 
       if(is_numeric($_POST['page'])){
-        $query_vars['paged'] = intval($_POST['page']);
+        $query_vars['paged'] = absint($_POST['page'] + 1);
       }
     }
 
