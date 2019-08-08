@@ -43,7 +43,7 @@ function ap_ajax_pagination() {
                $imgSize = null;
               //
               if($imgWidth && $imgHeight){
-                $imgSize = $imgWidth .' x '. $imgHeight . ' cm';
+                $imgSize = strval($imgWidth .' x '. $imgHeight . ' cm');
               }
 
               //
@@ -95,17 +95,15 @@ function ap_create_gallery_blocks($images = null, $numberOfImgs = 0){
               <div class="ap-gallery-block"
               data-ap-slide-no="<?php echo $numberOfImgs + $n; ?>"
               data-ap-post-id="<?php echo $image['post-id'] ?>"
-              <?php if($image['text']){ echo 'data-ap-img-text="'. $image['text'].'"';}; ?>
-              <?php if($image['size']){ echo 'data-ap-img-size="'. $image['size'].'"';}; ?>
-              <?php if($image['date']){ echo 'data-ap-img-date="'. $image['date'].'"';}; ?>
+              <?php if($image['text']){ ?> data-ap-img-text= "<?php esc_attr_e($image['text']);}; ?>"
+              <?php if($image['size']){ ?> data-ap-img-size= "<?php esc_attr_e($image['size']);}; ?>"
+              <?php if($image['date']){ ?> data-ap-img-date= "<?php esc_attr_e($image['date']);}; ?>"
               >
-                <img src="<?php echo $image['src']; ?>">
+                <img src="<?php echo esc_url($image['src']); ?>">
                 <div class="ap-gallery-block-overlay unselectable">
-                  <?php if($image['text']){ echo '<i class="fas fa-palette"></i> '. $image['text'];}; ?>
-                  <br />
-                  <?php if($image['size']){ echo '<i class="fas fa-ruler"></i> '. $image['size'];}; ?>
-                  <br />
-                  <?php if($image['date']){ echo '<i class="far fa-calendar"></i> '. $image['date'];}; ?>
+                  <?php if($image['text']){ ?> <i class="fas fa-palette"></i>&nbsp; <?php esc_html_e($image['text']); ?> <br /> <?php }; ?>
+                  <?php if($image['size']){ ?> <i class="fas fa-ruler"></i>&nbsp; <?php esc_html_e($image['size']); ?> <br /> <?php }; ?>
+                  <?php if($image['date']){ ?> <i class="fas fa-calendar"></i>&nbsp; <?php esc_html_e($image['date']);}; ?>
                 </div>
               </div> <!-- /Gallery block -->
               <?php

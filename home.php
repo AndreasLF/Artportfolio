@@ -42,7 +42,7 @@ $args = array(
         // Get image src and information
         $imgSrc = get_the_post_thumbnail_url(get_the_ID(),'large');
         // $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
-        $imgText = get_the_title($imageId);
+        $imgText = strval(get_the_title($imageId));
         $imgWidth = get_post_meta($imageId,'_size_width',true);
         $imgHeight = get_post_meta($imageId,'_size_height',true);
 
@@ -107,9 +107,9 @@ function ap_create_gallery($images = null){
               <div class="ap-gallery-block"
               data-ap-slide-no="<?php echo $n; ?>"
               data-ap-post-id="<?php echo $image['post-id'] ?>"
-              <?php if($image['text']){ ?> data-ap-img-text= <?php esc_attr_e($image['text']);}; ?>
+              <?php if($image['text']){ ?> data-ap-img-text= "<?php esc_attr_e($image['text']);}; ?>"
               <?php if($image['size']){ ?> data-ap-img-size= "<?php esc_attr_e($image['size']);}; ?>"
-              <?php if($image['date']){ ?> data-ap-img-date= <?php esc_attr_e($image['date']);}; ?>
+              <?php if($image['date']){ ?> data-ap-img-date= "<?php esc_attr_e($image['date']);}; ?>"
               >
                 <img src="<?php echo esc_url($image['src']); ?>">
                 <div class="ap-gallery-block-overlay unselectable">
