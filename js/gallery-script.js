@@ -13,7 +13,6 @@
     });
 
 
-
     //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
     var storyToggled = true;
@@ -68,16 +67,29 @@
 
 
     // Slideshow button click: Open slideshow
-    $('.ap-slideshow-btn-story').click(function(){
-      toggleStory();
-    });
+    // $('.ap-slideshow-btn-story').click(function(){
+    //   toggleStory();
+    // });
 
-    //Document click: Hides story window if open
-    $('.ap-slideshow-story').click(function(){
-        if(storyToggled){
-            toggleStory();
+    // Document click: Hides story window if open
+    // $('.modal').click(function(){
+    //     // if(storyToggled){
+    //     //     toggleStory();
+    //     // }
+    // });
+
+    //Toggle story
+    $('.modal').click(function(e){
+        if(!$('.ap-slideshow-btn-story').is(e.target) && $('.ap-slideshow-btn-story').has(e.target).length === 0){
+          if(storyToggled){
+              toggleStory();
+          }
+        }
+        else{
+          toggleStory();
         }
     });
+
 
 
 
