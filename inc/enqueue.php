@@ -53,7 +53,7 @@ function ap_enqueue(){
       wp_enqueue_script('masonry');
 
       // Gallery script
-      wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js', 'masonry'));
+      wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js', 'masonry','ap_ajax_pagination'));
       wp_enqueue_script('ap_gallery_script');
 
       wp_localize_script( 'ap_gallery_script', 'ajaxgallerystory', array(
@@ -63,14 +63,16 @@ function ap_enqueue(){
       // AJAX pagination
       global $wp_query;
 
-      wp_register_script('ap_ajax_pagination', get_template_directory_uri()."/js/ajax-pagination-button.js",array('ap_gallery_script'));
+      wp_register_script('ap_ajax_pagination', get_template_directory_uri()."/js/ajax-pagination-button.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js', 'masonry'));
 
       wp_enqueue_script('ap_ajax_pagination');
 
       wp_localize_script( 'ap_ajax_pagination', 'ajaxpagination', array(
            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-           'query_vars' => json_encode( $wp_query->query )
          ));
+       // wp_localize_script( 'ap_gallery_script', 'ajaxpagination', array(
+       //      'ajaxurl' => admin_url( 'admin-ajax.php' ),
+       //    ));
 
     }
 

@@ -2,8 +2,9 @@
 function ap_ajax_pagination() {
 
     //Gets the query vars
-    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-
+    // $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+    global $wp_query;
+    $query_vars = $wp_query->query;
     //Updates page number
     // $numberOfImgs = null;
 
@@ -61,57 +62,13 @@ function ap_ajax_pagination() {
 
            }
           //Create gallery with the ap_create_gallery function
-          ap_create_gallery_blocks($imgs, $numberOfImgs);
+          exit(json_encode(array('has_posts' => true, 'posts' => $imgs)));
+          // ap_create_gallery_blocks($imgs, $numberOfImgs);
       }
       else {
-        ?>
-            <div class="section"></div>
-            <div class="divider"></div>
-            <p id='pagination-end' hidden><?php _e('That\'s it', 'artportfolio'); ?></i></p>
-        <?php
-
+          exit(json_encode(array('has_posts' => false)));
     }
-
-
-    die();
-}
-
-/*
-* This function creates a photo gallery from an array of photo sources
-*
-* @param array $images nested array of image information
-* @return html photo gallery
-*/
-function ap_create_gallery_blocks($images = null, $numberOfImgs = 0){
-  //Only run code if $images is defined
-  if($images){
-    ?>
-            <?php
-            // loop through images
-            foreach($images as $n=>$image){
-              ?>
-              <!-- Gallery block -->
-              <?php // Creates a div with the information needed provided in data- attributes - image number, text, size ?>
-              <div class="ap-gallery-block"
-              data-ap-slide-no="<?php echo $numberOfImgs + $n; ?>"
-              data-ap-post-id="<?php echo $image['post-id'] ?>"
-              <?php if($image['text']){ ?> data-ap-img-text= "<?php esc_attr_e($image['text']);}; ?>"
-              <?php if($image['size']){ ?> data-ap-img-size= "<?php esc_attr_e($image['size']);}; ?>"
-              <?php if($image['date']){ ?> data-ap-img-date= "<?php esc_attr_e($image['date']);}; ?>"
-              >
-                <img src="<?php echo esc_url($image['src']); ?>">
-                <div class="ap-gallery-block-overlay unselectable">
-                  <?php if($image['text']){ ?> <i class="fas fa-palette"></i>&nbsp; <?php esc_html_e($image['text']); ?> <br /> <?php }; ?>
-                  <?php if($image['size']){ ?> <i class="fas fa-ruler"></i>&nbsp; <?php esc_html_e($image['size']); ?> <br /> <?php }; ?>
-                  <?php if($image['date']){ ?> <i class="fas fa-calendar"></i>&nbsp; <?php esc_html_e($image['date']);}; ?>
-                </div>
-              </div> <!-- /Gallery block -->
-              <?php
-            }
-  }
-  else {
-    return;
-  }
+  exit(json_encode(array('has_posts' => false)));
 }
 
 ?>

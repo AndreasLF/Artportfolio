@@ -156,11 +156,11 @@
     */
     function nextSlide(){
         var totalSlides = $('.ap-grid').data('ap-total-slides');
-        console.log(totalSlides);
 
         if(currentImage == totalSlides - 1){
           currentImage = 0;
-        }else{
+        }
+        else{
           currentImage = currentImage + 1;
         }
 
