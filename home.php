@@ -77,7 +77,7 @@ $args = array(
     <span class="sr-only">Loading...</span>
   </div>
   <br />
-  <button type="button" class="btn btn-secondary ajax-pagination-btn">Load more</button>
+  <button type="button" class="btn btn-secondary ajax-pagination-btn"><?php esc_html_e('Indlæs flere') ?></button>
 </div>
 
     </div><!-- /container -->

@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Artportfolio\n"
+"POT-Creation-Date: 2019-08-08 21:21+0200\n"
+"PO-Revision-Date: 2019-08-08 21:33+0200\n"
+"Last-Translator: \n"
+"Language-Team: hvidstoej.dk\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: lib\n"
+"X-Poedit-SearchPathExcluded-1: js\n"
+"X-Poedit-SearchPathExcluded-2: .git\n"
+
+#: 404.php:9
+msgid "SIDEN BLEV IKKE FUNDET"
+msgstr "PAGE NOT FOUND"
+
+#: 404.php:14
+msgid "Siden du forsøgte at tilgå eksisterer ikke"
+msgstr "The page you tried to reach does not exist"
+
+#: functions.php:85
+msgid "Bredde (cm)"
+msgstr "Width (cm)"
+
+#: functions.php:92
+msgid "Højde (cm)"
+msgstr "Height (cm)"
+
+#: inc/ajax-pagination.php:70
+msgid "That's it"
+msgstr "That's it"
+
+#: inc/customizer/bio.php:26
+msgid "Bio"
+msgstr "Bio"
+
+#: inc/customizer/bio.php:42
+msgid "Navn"
+msgstr "Name"
+
+#: inc/customizer/bio.php:54
+msgid "Positionen af sociale links på siden"
+msgstr "The position of social links on the page"
+
+#: inc/customizer/bio.php:59
+msgid "Ingen links"
+msgstr "No links"
+
+#: inc/customizer/bio.php:60
+msgid "Under billedet"
+msgstr "Below the image"
+
+#: inc/customizer/bio.php:61
+msgid "Under teksten"
+msgstr "Below the text"
+
+#: inc/customizer/bio.php:72
+msgid "Upload et profilbillede"
+msgstr "Upload a profile picture"
+
+#: inc/customizer/frontpage.php:22
+msgid "Forside"
+msgstr "Front page"
+
+#: inc/customizer/frontpage.php:37
+msgid "Forsidebillede"
+msgstr "Front page image"
+
+#: inc/customizer/frontpage.php:42
+msgid "Seneste billede fra galleriet"
+msgstr "Latest image from gallery"
+
+#: inc/customizer/frontpage.php:43
+msgid "Tilpasset billede (Husk at vælge et billede)"
+msgstr "Custom image (remember to pick an image)"
+
+#: inc/customizer/frontpage.php:54
+msgid "Upload tilpasset forsidebillede (Vælg \"Tilpasset billede\" ovenfor)"
+msgstr "Upload custom image for front page (select \"Custom image\" above)"
+
+#: inc/customizer/social.php:57
+msgid "Facebook"
+msgstr "Facebook"
+
+#: inc/customizer/social.php:69
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/customizer/social.php:81
+msgid "Email addresse"
+msgstr "Email address"
+
+#: inc/customizer/social.php:94
+msgid "Instagram"
+msgstr "Instagram"
+
+#: inc/customizer/social.php:106
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: inc/customizer/social.php:118
+msgid "Snapchat"
+msgstr "Snapchat"
+
+#: inc/customizer/social.php:130
+msgid "Telefon"
+msgstr "Phone"
+
+#: inc/setup.php:10
+msgid "Nav menu"
+msgstr "Nav menu"
+
+#: inc/theme-customizer.php:9
+msgid "Artportfolio"
+msgstr "Artportfolio"
+
+#: inc/theme-customizer.php:10
+msgid "Dette panel bruges til at tilpasse temaet"
+msgstr "The panel is used to customize the theme"
+
+#: inc/theme-customizer.php:24
+msgid "Generelt"
+msgstr "General"
+
+#: page-bio.php:30
+msgid "@"
+msgstr "@"

@@ -6,12 +6,12 @@
   <!-- title -->
     <h3>
       <i class="fas fa-exclamation-circle"></i>
-          <?php esc_html_e('PAGE NOT FOUND','artportfolio')?>
+          <?php esc_html_e('SIDEN BLEV IKKE FUNDET','artportfolio')?>
     </h3>
   <!-- /title -->
 
   <!-- error message -->
-    <?php esc_html_e('The page you were looking for does not exist.','artoportfolo')?>
+    <?php esc_html_e('Siden du forsøgte at tilgå eksisterer ikke','artoportfolo')?>
   <!-- /error message -->
 
 

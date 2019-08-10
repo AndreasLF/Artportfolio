@@ -125,7 +125,7 @@ function ajaxPagination(totalSlides = 0){
             //Create message
             var $p = jQuery('<p/>', {id: "end-of-posts"});
             var $i = jQuery('<i/>',{'class': 'far fa-grin-beam'})
-            var msg = 'That\'s it';
+            var msg = data['msg'];
             $p.append(msg,'&nbsp;',$i)
 
             // Append message

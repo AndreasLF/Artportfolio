@@ -66,7 +66,7 @@ function ap_ajax_pagination() {
           // ap_create_gallery_blocks($imgs, $numberOfImgs);
       }
       else {
-          exit(json_encode(array('has_posts' => false)));
+          exit(json_encode(array('has_posts' => false, 'msg' => esc_html__('Det var alt'))));
     }
   exit(json_encode(array('has_posts' => false)));
 }
