@@ -31,7 +31,7 @@ function ap_ajax_pagination() {
             //
             //
             if(has_post_thumbnail(get_the_ID())){
-              $imageId = attachment_url_to_postid( get_the_post_thumbnail_url(get_the_ID()) );
+              $imageId = get_post_thumbnail_id(get_the_ID() );
 
               //
               // // Get image src and information

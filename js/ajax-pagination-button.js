@@ -50,6 +50,8 @@ function ajaxPagination(totalSlides = 0){
         if(data['has_posts']){
           hasSlides = true;
 
+          var newItems = new Array();
+
           // Loops through each post
           data['posts'].forEach(function(element, index){
                 // Overlay div for image information
@@ -65,16 +67,16 @@ function ajaxPagination(totalSlides = 0){
                   'data-ap-slide-no': totalSlides + index,
                   'data-ap-post-id': element['post-id'],
                 });
-                // If the element contains text
-                if(element['text'] !== '' && element['text'] !== undefined && element['text'] !== null){
-                  // The text data attribute is added to the gallery block div
-                  $galleryBlock.attr('data-ap-img-text',element['text']);
-
-                  // Palette icon is defined
-                  var $i = jQuery('<i/>', {'class': 'fas fa-palette'});
-                  // Elements are added to the overlay
-                  $overlay.append($i,$space,element['text'],$br);
-                }
+                // // If the element contains text
+                // if(element['text'] !== '' && element['text'] !== undefined && element['text'] !== null){
+                //   // The text data attribute is added to the gallery block div
+                //   $galleryBlock.attr('data-ap-img-text',element['text']);
+                //
+                //   // Palette icon is defined
+                //   var $i = jQuery('<i/>', {'class': 'fas fa-palette'});
+                //   // Elements are added to the overlay
+                //   $overlay.append($i,$space,element['text'],$br);
+                // }
                 if(element['size'] !== '' && element['size'] !== undefined && element['size'] !== null){
                   // The size data attribute is added to the gallery block div
                   $galleryBlock.attr('data-ap-img-size',element['size']);
@@ -101,7 +103,7 @@ function ajaxPagination(totalSlides = 0){
                 $galleryBlock.append($img,$overlay)
 
                 // The gallery block is appended to the gallery grid and also added to masonry
-                jQuery('.ap-grid').append( $galleryBlock ).masonry( 'appended', $galleryBlock );
+                jQuery('.ap-grid').append( $galleryBlock ).masonry('appended', $galleryBlock);
             });
 
           // Show button
@@ -109,7 +111,6 @@ function ajaxPagination(totalSlides = 0){
 
           // Update total slides data attribute
           jQuery('.ap-grid').attr('data-ap-total-slides',totalSlides+data['posts'].length);
-
 
         }
         else{
@@ -137,6 +138,13 @@ function ajaxPagination(totalSlides = 0){
 
         //Hide preloader
         jQuery('#gallery-preloader').addClass('d-none');
+
+        jQuery('.ap-grid').imagesLoaded(function(){
+          jQuery('.ap-grid').masonry({
+            itemSelector : '.ap-gallery-block',
+            gutter: 5
+          });
+        });
 
     },
     error: function(){

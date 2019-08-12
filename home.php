@@ -11,6 +11,7 @@ get_template_part('template-parts/img-modal');
 <!--Container -->
 <div class="container">
 
+
   <br />
 
 
@@ -37,12 +38,12 @@ $args = array(
         $the_query->the_post();
 
 
-        $imageId = attachment_url_to_postid( get_the_post_thumbnail_url(get_the_ID()) );
+        $imageId = get_post_thumbnail_id(get_the_ID() );
 
         // Get image src and information
         $imgSrc = get_the_post_thumbnail_url(get_the_ID(),'large');
         // $imgSrc = get_post_meta( get_the_ID(), 'image' )[0];
-        $imgText = strval(get_the_title($imageId));
+        // $imgText = strval(get_the_title($imageId));
         $imgWidth = get_post_meta($imageId,'_size_width',true);
         $imgHeight = get_post_meta($imageId,'_size_height',true);
 
@@ -80,6 +81,7 @@ $args = array(
   <button type="button" class="btn btn-secondary ajax-pagination-btn"><?php esc_html_e('Indlæs flere') ?></button>
 </div>
 
+
     </div><!-- /container -->
 
 <?php get_footer(); ?>
@@ -107,13 +109,11 @@ function ap_create_gallery($images = null){
               <div class="ap-gallery-block"
               data-ap-slide-no="<?php echo $n; ?>"
               data-ap-post-id="<?php echo $image['post-id'] ?>"
-              <?php if($image['text']){ ?> data-ap-img-text= "<?php esc_attr_e($image['text']);}; ?>"
               <?php if($image['size']){ ?> data-ap-img-size= "<?php esc_attr_e($image['size']);}; ?>"
               <?php if($image['date']){ ?> data-ap-img-date= "<?php esc_attr_e($image['date']);}; ?>"
               >
                 <img src="<?php echo esc_url($image['src']); ?>">
                 <div class="ap-gallery-block-overlay unselectable">
-                  <?php if($image['text']){ ?> <i class="fas fa-palette"></i>&nbsp; <?php esc_html_e($image['text']); ?> <br /> <?php }; ?>
                   <?php if($image['size']){ ?> <i class="fas fa-ruler"></i>&nbsp; <?php esc_html_e($image['size']); ?> <br /> <?php }; ?>
                   <?php if($image['date']){ ?> <i class="fas fa-calendar"></i>&nbsp; <?php esc_html_e($image['date']);}; ?>
                 </div>
