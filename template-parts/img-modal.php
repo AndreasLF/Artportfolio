@@ -10,6 +10,9 @@
         <div class="ap-slideshow-btn ap-slideshow-btn-next">
           <i class="fas fa-chevron-right"></i>
         </div>
+        <div class="ap-slideshow-btn ap-slideshow-btn-full">
+          <i class="fas fa-search-plus"></i>
+        </div>
         <div class="ap-slideshow-btn ap-slideshow-btn-prev">
           <i class="fas fa-chevron-left"></i>
         </div>

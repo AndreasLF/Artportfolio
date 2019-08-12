@@ -193,6 +193,16 @@ h2 {
   -webkit-transform: rotate(90deg);
 }
 
+/* prev button */
+.ap-slideshow-btn-prev {
+  top: 16px;
+  left: 16px;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /* next button */
 .ap-slideshow-btn-next {
   top: 16px;
@@ -203,12 +213,12 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* prev button */
-.ap-slideshow-btn-prev {
+/* next button */
+.ap-slideshow-btn-full {
   top: 16px;
-  left: 16px;
-  padding-left: 17px;
-  padding-right: 17px;
+  left: 136px;
+  padding-left: 14px;
+  padding-right: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
 }

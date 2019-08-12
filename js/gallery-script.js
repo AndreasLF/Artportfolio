@@ -15,6 +15,7 @@
     //Variables to store number of current image in slideshow and if story is toggled
     var currentImage = null;
     var storyToggled = true;
+
     /*
     * Gallery image click
     *  Used on("click") instead of click() to make sure the event works after more gallery blocks are added to the DOM
@@ -62,6 +63,17 @@
     // Prev button click
     $('.ap-slideshow-btn-prev').click(function(){
         prevSlide();
+    });
+
+
+    $('.ap-slideshow-btn-full').click(function(){
+
+
+window.open(
+  $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").data('ap-img-src'),
+  '_blank' // <- This is what makes it open in a new window.
+);
+
     });
 
 
@@ -166,50 +178,52 @@
     * Change to the next slide in the slideshow
     */
     function nextSlide(){
-        var totalSlides = $('.ap-grid').data('ap-total-slides');
+        var totalSlides = $('.ap-grid').attr('data-ap-total-slides');
 
         if(currentImage == totalSlides - 1){
           currentImage = 0;
+          updateSlideshowImage(currentImage);
+
         }
         else{
           currentImage = currentImage + 1;
+          updateSlideshowImage(currentImage);
+
         }
 
-        //Change image source
-        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
-
-        //set caption
-        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
-
-        //Hide story if shown
-        if(storyToggled == true){
-          toggleStory();
-        };
-
-        // Sets the story by making an ajax call to the server
-        setStoryAjax();
-        //Hide story if shown
-        if(storyToggled == true){
-          toggleStory();
-        };
     }
 
     /*
     * Change to the previous slide in the slideshow
     */
     function prevSlide(){
-        var totalSlides = $('.ap-grid').data('ap-total-slides');
+        var totalSlides = $('.ap-grid').attr('data-ap-total-slides');
 
         if(currentImage == 0){
           currentImage = totalSlides - 1;
         }else{
           currentImage = currentImage - 1;
         }
+
+        updateSlideshowImage(currentImage);
+
+    }
+
+    /*
+    * Updates the slideshow images
+    * @param imageNumber number of image in slideshow to show
+    */
+    function updateSlideshowImage(imageNumber = 0, newPageExists = false){
+
+      if(newPageExists){
+
+      }
+      else{
         //Change image source
-        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']").find('img').attr('src'));
+        $('.ap-slideshow-img').attr('src', $('.ap-grid').find("div[data-ap-slide-no='" + imageNumber + "']").find('img').attr('src'));
 
         //set caption
-        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
+        setCaption($('.ap-grid').find("div[data-ap-slide-no='" + imageNumber + "']"));
 
 
         //Hide story if shown
@@ -223,6 +237,8 @@
         if(storyToggled == true){
           toggleStory();
         };
+      }
+
     }
 
     /*
@@ -271,18 +287,10 @@
              $('.ap-slideshow-story-content').empty();
              $('.ap-slideshow-story-content').append($caption,$hr,$content);
 
-             // Sets the image source
-             $('.ap-slideshow-img').attr('src', obj.img_src);
-
            }
            else{
              // Hide the story and only update image
              $('.ap-slideshow-btn-story').hide();
-
-             if(obj.img_src)
-            {
-              $('.ap-slideshow-img-full').attr('src', encodeURI(obj.img_src));
-            }
            }
          },
          error : function(err){
