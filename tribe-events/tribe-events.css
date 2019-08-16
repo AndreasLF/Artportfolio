@@ -1,0 +1,115 @@
+
+.tribe-events-page-title{
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+.tribe-events-list-event-title a{
+  font-size: 20px;
+}
+
+.tribe-events-schedule{
+  background-color:  #f7f7f7 !important;
+  border: 1px solid #eeeded !important;
+  border-radius: 5px !important;
+  padding: 10px 20px 10px 20px !important;
+}
+
+.tribe-events-read-more{
+  padding: 10px !important;
+  background-color: #e0dede;
+  float: right;
+  border-radius: 5px;
+}
+
+.tribe-events-read-more:hover{
+  background-color: #b3b3b3;
+}
+
+.tribe-events-gmap{
+  margin-top: 5px !important;
+  padding: 5px !important;
+}
+
+.tribe-events-gmap:hover{
+  color: #b3b3b3 !important;
+}
+
+
+.ap-cal-venue-link{
+  font-weight: bold;
+}
+
+.ap-cal-venue-link:hover {
+  color: #616161 !important;
+}
+
+.ap-cal-block{
+  background-color:  #f7f7f7 !important;
+  border: 1px solid #eeeded !important;
+  border-radius: 5px !important;
+}
+.ap-cal-block h2{
+  font-size: 20px;
+}
+
+.ap-cal-venue-name{
+  font-weight: bold !important;
+}
+
+.ap-cal-venue-address{
+  font-weight: normal !important;
+}
+
+.tribe-events-single-event-description{
+  padding: 20px !important;
+}
+
+.ap-cal-list-container{
+  background-color:  #f7f7f7;
+  border: 1px solid #eeeded ;
+  border-radius: 5px;
+  padding: 20px !important;
+  cursor: pointer;
+  display:inline-block;
+  width: 100%;
+}
+
+.ap-cal-list-container:hover{
+  background-color: #eeeded;
+}
+
+.tribe-events-list-event-description{
+}
+
+.tribe-events-list-separator-month{
+  padding-left: 10px !important;
+  padding-right: 10px;
+  font-size: 20px !important;
+  text-align: center;
+  border-radius: 5px;
+  background-color:  white !important;
+}
+
+.tribe-events-list-separator-month span{
+  background-color: white;
+}
+
+.tribe-events-sub-nav li{
+  background-color:  #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.tribe-events-sub-nav li:hover{
+  background-color: #eeeded;
+}
+
+.ap-cal-list-container{
+  margin-top: 20px;
+}
+
+
+/* .tribe-events-ical{
+  display: none !important;
+} */

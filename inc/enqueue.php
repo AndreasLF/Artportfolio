@@ -47,6 +47,7 @@ function ap_enqueue(){
     wp_register_script('ap_bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',array('jquery'));
     wp_enqueue_script('ap_bootstrap_js');
 
+
     // Load gallery script if on the blog/gallery page
     if(is_home()){
       wp_register_script('masonry',get_template_directory_uri().'/lib/masonry/dist/masonry.pkgd.js',array('jquery','hammer_js'));

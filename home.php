@@ -10,8 +10,6 @@ get_template_part('template-parts/img-modal');
 ?>
 <!--Container -->
 <div class="container">
-
-
   <br />
 
 

@@ -8,9 +8,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: artportfolio
 Tags: art portfolio,
 */
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.2rem;
+}
+
 h2 {
   font-family: 'Permanent Marker', cursive;
   font-size: 1.8rem;
+}
+
+h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
 }
 
 .ap-bio-img {
@@ -202,6 +212,7 @@ h2 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 
 /* next button */
 .ap-slideshow-btn-next {
