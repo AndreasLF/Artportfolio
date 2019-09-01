@@ -29,25 +29,7 @@
             ?>
             <br />
 
-            <div class="ap-img-info-single">
-              <?php if($imgText){ ?>
-                <i class="fas fa-palette"></i>
-                <?php esc_html_e($imgText); ?> &nbsp; &nbsp;
-              <?php }
-              if($imgSize){
-              ?>
-                <br class="d-block d-sm-none" />
-                <i class="fas fa-ruler"></i>
-                <?php esc_html_e($imgSize); ?> &nbsp; &nbsp;
-              <?php }
-              if($imgDate){
-              ?>
-                <br class="d-block d-sm-none" />
-                  <i class="far fa-calendar"></i>
-                <?php esc_html_e($imgDate); ?>
-              <?php } ?>
-            </div>
-            <hr />
+
 
 
             <div class="row d-flex justify-content-center">
@@ -55,9 +37,24 @@
                 <img class="ap-img-single" src="<?php echo esc_url($imgSrc); ?>" />
               </a>
             </div>
+
+
+            <div class="ap-img-info-single">
+              <?php
+              if($imgSize){
+              ?>
+                <i class="fas fa-ruler"></i>&nbsp;
+                <?php esc_html_e($imgSize); ?> &nbsp; &nbsp;
+              <?php }
+              if($imgDate){
+              ?>
+                  <i class="far fa-calendar"></i>&nbsp;
+                <?php esc_html_e($imgDate); ?>
+              <?php } ?>
+            </div>
             <hr />
             <br />
-            <div class="row">
+            <div class="">
 
               <?php
                 the_content()

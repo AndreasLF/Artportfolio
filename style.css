@@ -60,6 +60,7 @@ h3 {
   position: absolute;
   top: 0;
   z-index: -1;
+
 }
 
 .ap-front-img {
@@ -134,6 +135,7 @@ h3 {
 .ap-img-info-single {
   padding: 0.8em;
   color: #616161;
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------- */
@@ -318,6 +320,18 @@ h3 {
 .ap-story-divider {
   border-color: rgba(100, 100, 100, 0.8);
 }
+
+.ap-story-post-url{
+  text-decoration: none;
+  color: white;
+  float: right;
+  margin-top: 10px;
+}
+
+.ap-story-post-url:hover{
+  color: #cccaca;
+}
+
 
 /* -------------------------------------------------------------------- */
 /* -------------------------------------------------------------------- */

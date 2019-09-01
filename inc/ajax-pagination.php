@@ -39,6 +39,9 @@ function ap_ajax_pagination() {
 
                $imgSrcFull = get_the_post_thumbnail_url(get_the_ID());
 
+               $imgExcerpt = get_the_excerpt();
+               $postUrl = get_permalink();
+
 
                $imgText = get_the_title($imageId);
                $imgWidth = get_post_meta($imageId,'_size_width',true);
@@ -59,7 +62,7 @@ function ap_ajax_pagination() {
               //
               //
               // // Push information to array (nested array)
-              array_push($imgs,array('src' => $imgSrc, 'src-full' => $imgSrcFull, 'text' => $imgText, 'size' => $imgSize, 'date' => $imgDate, 'post-id' => get_the_ID()));
+              array_push($imgs,array('src' => $imgSrc, 'src-full' => $imgSrcFull, 'text' => $imgText, 'size' => $imgSize, 'date' => $imgDate, 'post-id' => get_the_ID(), 'excerpt' => $imgExcerpt, 'post-url' => $postUrl));
 
             }
 

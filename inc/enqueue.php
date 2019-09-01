@@ -57,10 +57,6 @@ function ap_enqueue(){
       wp_register_script('ap_gallery_script', get_template_directory_uri()."/js/gallery-script.js",array('jquery','ap_bootstrap_js', 'hammer_js', 'jquery_hammer_js', 'masonry','ap_ajax_pagination'));
       wp_enqueue_script('ap_gallery_script');
 
-      wp_localize_script( 'ap_gallery_script', 'ajaxgallerystory', array(
-           'ajaxurl' => admin_url( 'admin-ajax.php' ),
-      ));
-
       // AJAX pagination
       global $wp_query;
 

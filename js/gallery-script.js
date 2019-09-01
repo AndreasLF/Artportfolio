@@ -29,8 +29,8 @@
         //set caption
         setCaption($('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']"));
 
-        // Sets the story by making an ajax call to the server
-        setStoryAjax();
+        // Sets the story
+        setStory();
         //Hide story if shown
         if(storyToggled == true){
           toggleStory();
@@ -231,8 +231,8 @@ window.open(
           toggleStory();
         };
 
-        // Sets the story by making an ajax call to the server
-        setStoryAjax();
+        // Sets the story
+        setStory();
         //Hide story if shown
         if(storyToggled == true){
           toggleStory();
@@ -253,51 +253,37 @@ window.open(
     });
 
     /*
-    * Gets the image story via an AJAX call and sets the story
+    * Sets the image story
     */
-    function setStoryAjax(){
+    function setStory(){
       var imgBlockDiv = $('.ap-grid').find("div[data-ap-slide-no='" + currentImage + "']");
 
       var id = imgBlockDiv.data('ap-post-id');
 
-      // Make ajax call
-       $.ajax({
-         url : ajaxgallerystory.ajaxurl,
-         type : 'post',
-         dataType: 'html',
-         data : {
-           action: 'ajax_gallery_story',
-           post_id: id //send the post id
-         },
-         success : function( response ) {
-           // JSON parse received string
-           var obj = JSON.parse(response);
-           //If the slideshow image has "a story"/extra content
-           if(obj.has_content){
+      if(imgBlockDiv.data('ap-img-excerpt') !== '' && imgBlockDiv.data('ap-img-excerpt') !== null && imgBlockDiv.data('ap-img-excerpt') !== undefined){
 
-             var $caption = getCaption(imgBlockDiv);
-             var $content = $('<div>',{'class': 'ap-story-content-container'});
-             $content.append(obj.data);
+        var $caption = getCaption(imgBlockDiv);
+        var $content = $('<div>',{'class': 'ap-story-content-container'});
+        $content.append(imgBlockDiv.data('ap-img-excerpt'));
 
-             var $hr = $('<hr>', {'class': 'ap-story-divider'});
+        var $postUrl = $('<a>',{'class': 'ap-story-post-url', 'href': imgBlockDiv.data('ap-img-posturl'), 'target': '_blank'});
+        $postUrl.append('<i class="fas fa-external-link-alt"></i> Læs mere');
+
+        var $hr = $('<hr>', {'class': 'ap-story-divider'});
 
 
-             // Show the info button and set the content
-             $('.ap-slideshow-btn-story').show();
-             $('.ap-slideshow-story-content').empty();
-             $('.ap-slideshow-story-content').append($caption,$hr,$content);
+        // Show the info button and set the content
+        $('.ap-slideshow-btn-story').show();
+        $('.ap-slideshow-story-content').empty();
+        $('.ap-slideshow-story-content').append($caption,$hr,$content,$postUrl);
 
-           }
-           else{
-             // Hide the story and only update image
-             $('.ap-slideshow-btn-story').hide();
-           }
-         },
-         error : function(err){
-           console.log('error');
-           $('.ap-slideshow-btn-story').hide();
-         }
-       });
+      }
+      else{
+        // Hide the story and only update image
+        $('.ap-slideshow-btn-story').hide();
+      }
+
+
     }
 
 

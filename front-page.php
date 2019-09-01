@@ -23,7 +23,7 @@
 
         ?>
         <div class="ap-front-img-container">
-          <img class="ap-front-img" src="<?php echo esc_url($imgSrc); ?>" />
+            <img class="ap-front-img" src="<?php echo esc_url($imgSrc); ?>" />
         </div>
       <?php } ?>
 

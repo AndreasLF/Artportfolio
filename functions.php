@@ -3,6 +3,7 @@
         Setup
 \*--------------------*/
 
+
 /*--------------------*\
         Includes
 \*--------------------*/
@@ -17,7 +18,6 @@ include(get_template_directory().'/inc/customizer/social.php');
 include(get_template_directory().'/inc/customizer/bio.php');
 include(get_template_directory().'/inc/customizer/frontpage.php');
 
-include(get_template_directory().'/inc/ajax-gallery-story.php');
 include(get_template_directory().'/inc/ajax-pagination.php');
 
 
@@ -35,11 +35,6 @@ add_action('after_setup_theme','ap_setup_theme');
 add_action('customize_register','ap_customize_register');
 
 
-
-// ajax
-add_action( 'wp_ajax_nopriv_ajax_gallery_story', 'ap_ajax_gallery_story' );
-add_action( 'wp_ajax_ajax_gallery_story', 'ap_ajax_gallery_story' );
-
 //AJAX pagination
 add_action( 'wp_ajax_nopriv_ajax_pagination', 'ap_ajax_pagination' );
 add_action( 'wp_ajax_ajax_pagination', 'ap_ajax_pagination' );
@@ -47,23 +42,6 @@ add_action( 'wp_ajax_ajax_pagination', 'ap_ajax_pagination' );
 /*--------------------*\
         Shortcode
 \*--------------------*/
-// 
-// function autoset_featured() {
-//     global $post;
-//     $already_has_thumb = has_post_thumbnail($post->ID);
-//         if (!$already_has_thumb)  {
-//         $attached_image = attachment_url_to_postid(get_post_meta( get_the_ID(), 'image' )[0]);
-//             if ($attached_image) {
-//                     set_post_thumbnail($post->ID, $attached_image);
-//             }
-//         }
-// }
-// add_action('the_post', 'autoset_featured');
-// add_action('save_post', 'autoset_featured');
-// add_action('draft_to_publish', 'autoset_featured');
-// add_action('new_to_publish', 'autoset_featured');
-// add_action('pending_to_publish', 'autoset_featured');
-// add_action('future_to_publish', 'autoset_featured');
 
 
 

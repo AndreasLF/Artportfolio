@@ -47,6 +47,10 @@ $args = array(
         $imgWidth = get_post_meta($imageId,'_size_width',true);
         $imgHeight = get_post_meta($imageId,'_size_height',true);
 
+
+        $imgExcerpt = get_the_excerpt();
+        $postUrl = get_permalink();
+
         $imgSize = null;
 
         if($imgWidth && $imgHeight){
@@ -61,7 +65,7 @@ $args = array(
 
 
         // Push information to array (nested array)
-        array_push($imgs,array('src' => $imgSrc, 'srcFull' => $imgSrcFull, 'text' => $imgText, 'size' => $imgSize, 'date' => $imgDate, 'post-id' => get_the_ID()));
+        array_push($imgs,array('src' => $imgSrc, 'srcFull' => $imgSrcFull, 'text' => $imgText, 'size' => $imgSize, 'date' => $imgDate, 'post-id' => get_the_ID(), 'excerpt' => $imgExcerpt, 'postUrl' => $postUrl));
 
       }
       //Create gallery with the ap_create_gallery function
@@ -112,6 +116,8 @@ function ap_create_gallery($images = null){
               <?php if($image['size']){ ?> data-ap-img-size= "<?php esc_attr_e($image['size']);}; ?>"
               <?php if($image['date']){ ?> data-ap-img-date= "<?php esc_attr_e($image['date']);}; ?>"
               <?php if($image['srcFull']){ ?> data-ap-img-src= "<?php esc_attr_e($image['srcFull']);}; ?>"
+              <?php if($image['excerpt']){ ?> data-ap-img-excerpt= "<?php esc_attr_e($image['excerpt']);}; ?>"
+              <?php if($image['postUrl']){ ?> data-ap-img-posturl= "<?php esc_attr_e($image['postUrl']);}; ?>"
               >
                 <img src="<?php echo esc_url($image['src']); ?>">
                 <div class="ap-gallery-block-overlay unselectable">

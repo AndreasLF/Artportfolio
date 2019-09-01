@@ -34,7 +34,7 @@ if ( tribe_get_venue_id() ) {
 	} elseif ( ! $set_venue_apart && ! tribe_has_organizer() && tribe_embed_google_map() ) {
 		// If we have no organizer, no need to separate the venue but we have a map to embed...
 		tribe_get_template_part( 'modules/meta/venue' );
-		echo '<div class="tribe-events-meta-group tribe-events-meta-group-gmap">';
+		echo '<div class="">';
 		tribe_get_template_part( 'modules/meta/map' );
 		echo '</div>';
 	} else {

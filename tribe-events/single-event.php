@@ -51,8 +51,10 @@ $event_id = get_the_ID();
 			<?php endif;?>
 			<?php if (tribe_get_start_time($event_id) != tribe_get_end_time($event_id)) :	?>
 				<?php echo esc_html(" - ".tribe_get_end_time($event_id));?>
+				<br />
 			<?php endif;?>
 			<!-- /time -->
+
 
 			<!-- cost -->
 			<?php if ( tribe_get_cost() ) : ?>

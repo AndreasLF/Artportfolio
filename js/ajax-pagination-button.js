@@ -66,7 +66,9 @@ function ajaxPagination(totalSlides = 0){
                   'class': 'ap-gallery-block',
                   'data-ap-slide-no': totalSlides + index,
                   'data-ap-post-id': element['post-id'],
-                  'data-ap-img-src': element['src-full']
+                  'data-ap-img-src': element['src-full'],
+                  'data-ap-img-excerpt': element['excerpt'],
+                  'data-ap-img-posturl': element['post-url']
                 });
                 // // If the element contains text
                 // if(element['text'] !== '' && element['text'] !== undefined && element['text'] !== null){
