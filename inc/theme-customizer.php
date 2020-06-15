@@ -14,7 +14,7 @@ function ap_customize_register($wp_customize){
     ap_social_customizer_section($wp_customize);
     ap_bio_customizer_section($wp_customize);
     ap_front_customizer_section($wp_customize);
-
+    ap_gallery_customizer_section($wp_customize);
 
     // ap_color_customizer_section($wp_customize);
     // ap_misc_customizer_section($wp_customize);

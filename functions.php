@@ -17,6 +17,8 @@ include(get_template_directory().'/inc/theme-customizer.php');
 include(get_template_directory().'/inc/customizer/social.php');
 include(get_template_directory().'/inc/customizer/bio.php');
 include(get_template_directory().'/inc/customizer/frontpage.php');
+include(get_template_directory().'/inc/customizer/gallery.php');
+
 
 include(get_template_directory().'/inc/ajax-pagination.php');
 
