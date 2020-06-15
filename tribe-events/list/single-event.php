@@ -110,12 +110,14 @@ $organizer = tribe_get_organizer();
 			<hr />
 
 			<!-- Event Content -->
-			<?php if(!empty(tribe_event_featured_image( null, 'medium' ))): ?>
-				<?php echo tribe_event_featured_image( null, 'medium' ); ?>
-				<br />
-			<?php endif; ?>
-			<div class="ap-cal-list-summary">
-				<?php echo tribe_events_get_the_excerpt( null, wp_kses_allowed_html( 'post' ) ); ?>
+			<div class="ap-cal-list-content">
+				<?php if(!empty(tribe_event_featured_image( null, 'medium' ))): ?>
+					<?php echo tribe_event_featured_image( null, 'medium' ); ?>
+					<br />
+				<?php endif; ?>
+				<div class="ap-cal-list-summary">
+					<?php echo tribe_events_get_the_excerpt( null, wp_kses_allowed_html( 'post' ) ); ?>
+				</div>
 			</div>
 			<!-- /Event Content -->
 
