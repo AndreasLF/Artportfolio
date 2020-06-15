@@ -43,7 +43,7 @@ add_action( 'wp_ajax_ajax_pagination', 'ap_ajax_pagination' );
         Shortcode
 \*--------------------*/
 
-
+require('google-analytics-shortcode.php');
 
 
 /**
