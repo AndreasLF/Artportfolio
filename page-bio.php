@@ -43,6 +43,28 @@
                         <i class="fas fa-phone"></i>
                         <?php esc_html_e(get_theme_mod('ap_phone_handle'));?>
                       </a>
+                      <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_facebook_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('facebook.com/' . get_theme_mod('ap_facebook_handle'));?>">
+                          <i class="fab fa-facebook"></i>
+                          <?php esc_html_e(get_theme_mod('ap_facebook_handle'));?>
+                        </a>
+                        <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_twitter_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('twitter.com/' . get_theme_mod('ap_twitter_handle'));?>">
+                          <i class="fab fa-twitter"></i>
+                          <?php esc_html_e(get_theme_mod('ap_twitter_handle'));?>
+                        </a>
+                        <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_linkedin_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('linkedin.com/in/' . get_theme_mod('ap_linkedin_handle'));?>">
+                          <i class="fab fa-linkedin"></i>
+                          <?php esc_html_e(get_theme_mod('ap_linkedin_handle'));?>
+                        </a>
+                        <br />
                       <?php } ?>
                 <?php } ?>
 
@@ -73,17 +95,39 @@
                       <br />
                       <?php } ?>
                       <?php if(get_theme_mod('ap_email_handle')){ ?>
-                      <a class="ap-bio-social-link" target="_blank"  href="<?php echo esc_url('mailto:' . get_theme_mod('ap_email_handle'));?>">
-                        <i class="far fa-envelope"></i>
-                        <?php esc_html_e(get_theme_mod('ap_email_handle'));?>
-                      </a>
-                      <br />
+                        <a class="ap-bio-social-link" target="_blank"  href="<?php echo esc_url('mailto:' . get_theme_mod('ap_email_handle'));?>">
+                          <i class="far fa-envelope"></i>
+                          <?php esc_html_e(get_theme_mod('ap_email_handle'));?>
+                        </a>
+                        <br />
                       <?php } ?>
                       <?php if(get_theme_mod('ap_phone_handle')){ ?>
-                      <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('tel:' . get_theme_mod('ap_phone_handle'));?>">
-                        <i class="fas fa-phone"></i>
-                        <?php esc_html_e(get_theme_mod('ap_phone_handle'));?>
-                      </a>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('tel:' . get_theme_mod('ap_phone_handle'));?>">
+                          <i class="fas fa-phone"></i>
+                          <?php esc_html_e(get_theme_mod('ap_phone_handle'));?>
+                        </a>
+                        <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_facebook_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('facebook.com/' . get_theme_mod('ap_facebook_handle'));?>">
+                          <i class="fab fa-facebook"></i>
+                          <?php esc_html_e(get_theme_mod('ap_facebook_handle'));?>
+                        </a>
+                        <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_twitter_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('twitter.com/' . get_theme_mod('ap_twitter_handle'));?>">
+                          <i class="fab fa-twitter"></i>
+                          <?php esc_html_e(get_theme_mod('ap_twitter_handle'));?>
+                        </a>
+                        <br />
+                      <?php } ?>
+                      <?php if(get_theme_mod('ap_linkedin_handle')){ ?>
+                        <a class="ap-bio-social-link" target="_blank" href="<?php echo esc_url('linkedin.com/in/' . get_theme_mod('ap_linkedin_handle'));?>">
+                          <i class="fab fa-linkedin"></i>
+                          <?php esc_html_e(get_theme_mod('ap_linkedin_handle'));?>
+                        </a>
+                        <br />
                       <?php } ?>
                 <?php } ?>
 
