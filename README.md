@@ -18,4 +18,8 @@ Events (past events):
 ![](readme-img/hvidstoej-events.PNG)
 
 
-
+WordPress plugins needed:
+- https://wordpress.org/plugins/the-events-calendar/
+- https://wordpress.org/plugins/fix-image-rotation/
+- https://wordpress.org/plugins/featured-image-admin-thumb-fiat/
+- https://wordpress.org/plugins/disable-comments/
